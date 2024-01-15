@@ -1,0 +1,24 @@
+
+  
+  /* Add the following styles for the sliding-down animation */
+  .navbar-links {
+    transform: scaleY(0);    
+  transform-origin: top;
+  transition: transform 0.26s ease;
+}
+  
+  .navbar-links.open {
+    transform: scaleY(1)
+  }
+  
+  .nav-text {
+    font-family: 'Poppins', sans-serif; 
+    font-weight:500;
+    letter-spacing: 1px;
+    color:#333333;
+    font-size: 15px;
+  }
+
+  .nav-icon{
+    color: #333;
+  }
