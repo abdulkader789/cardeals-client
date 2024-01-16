@@ -3,6 +3,39 @@ import '../styles/Navbar.css'
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faUser, faShoppingCart, faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom'
+const NavLinks = ({ visibility }) => {
+    return (
+        <div className='ml-10'>
+            <ul className={`${visibility} lg:flex items-center space-x-10`}>
+                <li><Link to='/home' className="uppercase nav-text pl-10">home</Link></li>
+                <li><Link to='/shop' className="uppercase nav-text">shop</Link></li>
+                <li><Link to='/about' className="uppercase nav-text">about</Link></li>
+                <li><Link to='/contact' className="uppercase nav-text">contact</Link></li>
+                <li><Link to='/login' className="uppercase nav-text">login</Link></li>
+            </ul>
+        </div>
+    )
+
+}
+
+const NavIcons = ({ visibility }) => {
+    return (
+        <div className={`${visibility} md:flex items-center space-x-10 `} >
+            <Link to='' className='icon-link'>
+                <FontAwesomeIcon icon={faSearch} className=" cursor-pointer nav-icon" />
+            </Link >
+            <Link to='/dashboard' className='icon-link'>
+                <FontAwesomeIcon icon={faUser} className=" cursor-pointer nav-icon" />
+            </Link>
+            <Link to='/checkout' className='icon-link '>
+                <FontAwesomeIcon icon={faShoppingCart} className="cursor-pointer nav-icon text-red-400" />
+            </Link>
+
+        </div>
+    )
+}
+
 
 const Navbar = () => {
     const [isNavOpen, setIsNavOpen] = useState(false);
@@ -12,67 +45,34 @@ const Navbar = () => {
     };
 
     return (
-        <nav className=" p-4">
+        <nav className=" px-4 py-2">
             <div className="container mx-auto flex items-center justify-between navbar-container">
-                {/* Left Side - Logo */}
                 <div className="flex items-center">
-
-                    <span className=" ml-2 text-lg font-bold">CarDeals</span>
+                    <span className="nav-logo font-extrabold ml-2 text-blue-600 p-2  uppercase">CarDeals</span>
                 </div>
-
-                {/* Right Side - Navigation Links for Larger Screens */}
-                <div className="hidden md:flex items-center space-x-10">
-                    <a href="#" className="uppercase nav-text">
-                        Home
-                    </a>
-                    <a href="#" className="uppercase nav-text">
-                        Shop
-                    </a>
-                    <a href="#" className="uppercase nav-text">
-                        Register
-                    </a>
-                    <a href="#" className="uppercase nav-text">
-                        Login
-                    </a>
-
-                    {/* Font Awesome Icons */}
-                    <FontAwesomeIcon icon={faSearch} className=" cursor-pointer nav-icon" />
-                    <FontAwesomeIcon icon={faUser} className=" cursor-pointer nav-icon" />
-                    <FontAwesomeIcon icon={faShoppingCart} className="cursor-pointer nav-icon" />
+                <div className='flex space-x-8'>
+                    <div className='mt-1'>
+                        <NavLinks visibility={'hidden'} />
+                    </div>
+                    <NavIcons visibility={'hidden'} />
                 </div>
 
 
-                {/* Font Awesome Icons */}
-                <FontAwesomeIcon icon={faSearch} className="md:hidden cursor-pointer nav-icon" />
-                <FontAwesomeIcon icon={faUser} className="md:hidden cursor-pointer nav-icon" />
-                <FontAwesomeIcon icon={faShoppingCart} className="md:hidden cursor-pointer nav-icon" />
                 {/* Responsive Navigation Toggle for Smaller Screens */}
-                <div className="md:hidden flex items-center">
+
+                <div className="lg:hidden flex items-center">
                     <FontAwesomeIcon
                         icon={isNavOpen ? faTimes : faBars}
                         className={` cursor-pointer navbar-toggle-icon `}
                         onClick={toggleNav}
                     />
                 </div>
-                {/* Responsive Navigation Links */}
                 <div
-                    className={`md:hidden bg-slate-200 absolute top-16 left-0 right-0  navbar-links transition-max-height duration-500 ${isNavOpen ? 'open py-5' : ''
+                    className={`lg:hidden bg-slate-200 absolute top-16 left-0 right-0  navbar-links transition-max-height duration-500 ${isNavOpen ? 'open py-5' : ''
                         }`}
                 >
-                    <div className="flex flex-col space-y-2 pl-12">
-                        <a href="#" className="uppercase nav-text">
-                            Home
-                        </a>
-                        <a href="#" className="uppercase nav-text">
-                            Shop
-                        </a>
-                        <a href="#" className="uppercase nav-text">
-                            Register
-                        </a>
-                        <a href="#" className="uppercase nav-text">
-                            Login
-                        </a>
-                    </div>
+                    <NavLinks visibility={'block'} />
+
                 </div>
             </div>
         </nav>

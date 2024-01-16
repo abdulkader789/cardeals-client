@@ -19,6 +19,21 @@
     font-size: 15px;
   }
 
-  .nav-icon{
-    color: #333;
+ 
+  .nav-logo{
+    font-family: 'Michroma', sans-serif;
+    font-size: 30px;
+    font-size: 24px;
   }
+
+  .icon-link{
+    background-color: #eeeeee;
+    width: 35px;
+    height: 35px;
+    text-align: center;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+ 
