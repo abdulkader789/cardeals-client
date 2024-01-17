@@ -1,7 +1,8 @@
 import React from 'react';
 import Content from './Content';
 
-const TopNav = () => {
+const TopNav = ({ email }) => {
+
     return (
 
         <div className="flex-1 flex-col flex">
@@ -120,7 +121,7 @@ const TopNav = () => {
                                         </div>
 
                                         <div className="flex flex-col ml-4">
-                                            <span>Admin Name</span>
+                                            <span>{email}</span>
                                             <span>Admin Role</span>
                                         </div>
                                     </div>

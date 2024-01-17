@@ -5,10 +5,13 @@
     transform: scaleY(0);    
   transform-origin: top;
   transition: transform 0.26s ease;
+
+
 }
   
   .navbar-links.open {
-    transform: scaleY(1)
+    transform: scaleY(1);
+
   }
   
   .nav-text {
@@ -17,15 +20,14 @@
     letter-spacing: 1px;
     color:#333333;
     font-size: 15px;
+    padding:6px 12px;
+
   }
 
- 
-  .nav-logo{
-    font-family: 'Michroma', sans-serif;
-    font-size: 30px;
-    font-size: 24px;
+  .nav-text:hover{
+    background-color: rgb(33, 49, 227);
+    color: white;
   }
-
   .icon-link{
     background-color: #eeeeee;
     width: 35px;
@@ -36,4 +38,10 @@
     justify-content: center;
     align-items: center;
   }
- 
+
+  
+  @media (max-width: 1070px) {
+    .home-nav {
+      display: none;
+    }
+  }

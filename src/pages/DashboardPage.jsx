@@ -5,24 +5,31 @@ import Header from "../components/Dashboard/Header";
 import Projects from "../components/Dashboard/Projects";
 import Tasks from "../components/Dashboard/Tasks";
 import TopNav from "../components/Dashboard/TopNav";
+import { useAuth } from "../context/AuthContext";
 
 
 const DashboardPage = () => {
-    const [isSidebarOpen, setSidebarOpen] = useState(true);
-    const [selectedSection, setSelectedSection] = useState('Tasks');
-    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-    const toggleSidebar = () => {
-        setSidebarOpen(!isSidebarOpen);
-    };
 
-    const toggleMobileMenu = () => {
-        setMobileMenuOpen(!mobileMenuOpen);
-    };
 
-    const handleSectionClick = (section) => {
-        setSelectedSection((prevSection) => (prevSection === section ? '' : section));
-    };
+    // Check if authData is null before accessing its properties
+    const { authData } = useAuth()
+    const email = authData.user.email
+    // const [isSidebarOpen, setSidebarOpen] = useState(true);
+    // const [selectedSection, setSelectedSection] = useState('Tasks');
+    // const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+    // const toggleSidebar = () => {
+    //     setSidebarOpen(!isSidebarOpen);
+    // };
+
+    // const toggleMobileMenu = () => {
+    //     setMobileMenuOpen(!mobileMenuOpen);
+    // };
+
+    // const handleSectionClick = (section) => {
+    //     setSelectedSection((prevSection) => (prevSection === section ? '' : section));
+    // };
     return (
         <div className="top-0 fixed md:flex w-full">
 
@@ -99,7 +106,7 @@ const DashboardPage = () => {
 
             </div >
 
-            <TopNav />
+            <TopNav email={email} />
 
 
 

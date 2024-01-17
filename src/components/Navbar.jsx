@@ -1,14 +1,14 @@
 import '../styles/Navbar.css'
 // Navbar.js
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faUser, faShoppingCart, faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom'
-const NavLinks = ({ visibility }) => {
+const NavLinks = ({ visibility, homeNav }) => {
     return (
         <div className='ml-10'>
-            <ul className={`${visibility} lg:flex items-center space-x-10`}>
-                <li><Link to='/home' className="uppercase nav-text pl-10">home</Link></li>
+            <ul className={`${visibility} text-center  lg:flex items-center justify-center lg:space-y-0 lg:space-x-10 space-y-10`}>
+                <li><Link to='/home' className={`${homeNav} uppercase nav-text pl-10`}>home</Link></li>
                 <li><Link to='/shop' className="uppercase nav-text">shop</Link></li>
                 <li><Link to='/about' className="uppercase nav-text">about</Link></li>
                 <li><Link to='/contact' className="uppercase nav-text">contact</Link></li>
@@ -48,11 +48,14 @@ const Navbar = () => {
         <nav className=" px-4 py-2">
             <div className="container mx-auto flex items-center justify-between navbar-container">
                 <div className="flex items-center">
-                    <span className="nav-logo font-extrabold ml-2 text-blue-600 p-2  uppercase">CarDeals</span>
+
+                    <span className="text-2xl nav-logo font-extrabold uppercase ml-2 p-2 text-blue-600">
+                        <Link to='/home'>cardeals</Link>
+                    </span>
                 </div>
                 <div className='flex space-x-8'>
                     <div className='mt-1'>
-                        <NavLinks visibility={'hidden'} />
+                        <NavLinks visibility={'hidden'} homeNav={'home-nav'} />
                     </div>
                     <NavIcons visibility={'hidden'} />
                 </div>
