@@ -82,7 +82,7 @@ const Signup = () => {
 
     return (
         <div className="px-14 py-5">
-            <div className="flex justify-center bg-gray-300 p-10">
+            <div className="flex justify-center bg-green-400 p-10">
                 <div className="w-1/2 h-[550px] hidden lg:block">
                     <img src="https://img.freepik.com/free-photo/sign-up-form-button-graphic-concept_53876-101286.jpg?size=626&ext=jpg&ga=GA1.1.632798143.1705276800&semt=ais" alt="Placeholder Image" className="w-full h-full" />
                 </div>

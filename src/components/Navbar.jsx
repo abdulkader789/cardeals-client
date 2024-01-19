@@ -3,8 +3,10 @@ import '../styles/Navbar.css'
 import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faUser, faShoppingCart, faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { useAuth } from '../context/AuthContext';
 const NavLinks = ({ visibility, homeNav }) => {
+
     return (
         <div className='ml-10'>
             <ul className={`${visibility} text-center  lg:flex items-center justify-center lg:space-y-0 lg:space-x-10 space-y-10`}>
@@ -20,16 +22,23 @@ const NavLinks = ({ visibility, homeNav }) => {
 }
 
 const NavIcons = ({ visibility }) => {
+    const { authData } = useAuth()
+    const isLoggedIn = authData && authData.user;
+
+    // Determine the role if the user is logged in, otherwise set it to 'user'
+    const role = isLoggedIn ? (authData.user.role === 1 ? 'admin' : 'user') : 'user';
+
     return (
         <div className={`${visibility} md:flex items-center space-x-10 `} >
             <Link to='' className='icon-link'>
                 <FontAwesomeIcon icon={faSearch} className=" cursor-pointer nav-icon" />
             </Link >
-            <Link to='/dashboard' className='icon-link'>
+            <Link to={`/dashboard/${role}`} className='icon-link'>
                 <FontAwesomeIcon icon={faUser} className=" cursor-pointer nav-icon" />
             </Link>
-            <Link to='/checkout' className='icon-link '>
-                <FontAwesomeIcon icon={faShoppingCart} className="cursor-pointer nav-icon text-red-400" />
+            <Link to='/checkout' className='icon-link relative'>
+                <FontAwesomeIcon icon={faShoppingCart} className="cursor-pointer nav-icon" />
+                <span className='cart-nav bg-red-500 absolute -top-1 left-6 text-white'>5</span>
             </Link>
 
         </div>
@@ -38,6 +47,13 @@ const NavIcons = ({ visibility }) => {
 
 
 const Navbar = () => {
+    const { authData } = useAuth();
+    const isTokenExists = authData && authData.token;
+    const navigate = useNavigate()
+
+    // If the token doesn't exist, redirect to the login page
+
+
     const [isNavOpen, setIsNavOpen] = useState(false);
 
     const toggleNav = () => {
@@ -45,7 +61,7 @@ const Navbar = () => {
     };
 
     return (
-        <nav className=" px-4 py-2">
+        <nav className=" px-4 py-2 ">
             <div className="container mx-auto flex items-center justify-between navbar-container">
                 <div className="flex items-center">
 

@@ -63,7 +63,8 @@ const Login = () => {
 
             login(data)
             // Handle successful login, e.g., redirect to another page
-            navigate('/dashboard');
+            const role = data?.user?.role === 1 ? 'admin' : 'user'
+            navigate(`/dashboard/${role}`);
         } catch (error) {
             console.error("Error during login:", error);
             // Handle errors, e.g., show an error message to the user
@@ -110,9 +111,7 @@ const Login = () => {
                             {error && <span>{error}</span>}
                         </div>
 
-                        <div className="mb-6 text-blue-500">
-                            <a href="#" className="hover:underline">Forgot Password?</a>
-                        </div>
+
                         <button onClick={handleSubmit} className="bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-md py-2 px-4 w-full">Login</button>
                     </form>
                     <div className="mt-6  text-center">

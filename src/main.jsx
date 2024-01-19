@@ -13,10 +13,10 @@ import Contact from "./pages/Contact";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import About from "./pages/About";
-import DashboardPage from "./pages/DashboardPage";
 import CheckoutPage from "./pages/CheckoutPage";
 import { AuthProvider } from "./context/AuthContext";
 import PrivateRoute from "./components/PrivateRoute";
+import DashboardRouting from "./components/DashboardRouting";
 
 const router = createBrowserRouter([
   {
@@ -50,13 +50,13 @@ const router = createBrowserRouter([
         element: <About />
       },
       {
-        path: "/dashboard",
-        element: <PrivateRoute> <DashboardPage /></PrivateRoute>
+        path: "/dashboard/:id",
+        element: <PrivateRoute> <DashboardRouting /></PrivateRoute>
 
       },
       {
         path: "/checkout",
-        element: <CheckoutPage />
+        element: <PrivateRoute><CheckoutPage /></PrivateRoute>
       },
 
     ]
