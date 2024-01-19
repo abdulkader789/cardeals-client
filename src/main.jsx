@@ -16,7 +16,7 @@ import About from "./pages/About";
 import CheckoutPage from "./pages/CheckoutPage";
 import { AuthProvider } from "./context/AuthContext";
 import PrivateRoute from "./components/PrivateRoute";
-import DashboardRouting from "./components/DashboardRouting";
+import DashboardRouting from "./components/Dashboard/DashboardRouting";
 
 const router = createBrowserRouter([
   {

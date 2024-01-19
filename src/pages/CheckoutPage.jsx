@@ -1,22 +1,8 @@
-import { useEffect, useState } from 'react';
 import '../styles/CheckoutPage.css'
-import LoadingBar from '../components/LoadingBar';
+import LoadingBar from '../components/Loader/LoadingBar';
+import useLoading from '../components/Loader/UseLoading';
 const CheckoutPage = () => {
-    const [isLoading, setIsLoading] = useState(true);
-
-    useEffect(() => {
-        // Simulate a 2-second delay using setTimeout
-        const delay = 1000; // in milliseconds
-
-        const timer = setTimeout(() => {
-            setIsLoading(false);
-        }, delay);
-
-        // Clear the timer when the component is unmounted or when the delay is complete
-        return () => clearTimeout(timer);
-    }, []); // Empty dependency array ensures that the effect runs only once
-
-
+    const isLoading = useLoading()
     return (
         isLoading ? <LoadingBar /> :
             <div className="bg-gray-100">

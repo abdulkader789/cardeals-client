@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import { useAuth } from '../context/AuthContext';
-import UserDashboard from '../pages/UserDashboard';
-import AdminDashboard from '../pages/AdminDashboard';
-import UnauthorizedUser from './UnauthorizedUser';
+import { useState, useEffect } from 'react';
+import { useAuth } from '../../context/AuthContext';
+import UserDashboard from '../../pages/UserDashboard';
+import AdminDashboard from '../../pages/AdminDashboard';
+import UnauthorizedUser from '../UnauthorizedUser';
 
 const DashboardRouting = () => {
     const [isAuthorized, setIsAuthorized] = useState(null);
