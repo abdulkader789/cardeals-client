@@ -1,5 +1,4 @@
-import React from 'react';
-import Category from './Category';
+import CategoryBar from './CategoryBar';
 import Projects from './Projects';
 import Tasks from './Tasks';
 import Header from './Header';
@@ -7,7 +6,7 @@ import '../../styles/Dashboard.css'
 import { Link } from 'react-router-dom';
 const Sidebar = () => {
     return (
-        < div className="sidebar max-h-screen  h-screen bg-gray-800 text-blue-100 w- inset-y-0 left-0 transform transition duration-200 ease-in-out z-50" >
+        < div className="sidebar fixed max-h-screen  h-screen bg-gray-800 text-blue-100 w- inset-y-0 left-0 transform transition duration-200 ease-in-out z-50" >
             <Header />
             <nav className="px-4 pt-4  scroller overflow-y-scroll max-h-[calc(100vh-64px)]" >
                 <ul className="flex flex-col space-y-2">
@@ -56,7 +55,7 @@ const Sidebar = () => {
                         Managment
                     </div>
 
-                    <Category />
+                    <CategoryBar />
                     <Projects />
                     <Tasks />
 

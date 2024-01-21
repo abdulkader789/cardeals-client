@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-const Category = () => {
+const CategoryBar = () => {
     const [click, setClick] = useState(false)
     const handleClick = () => {
         setClick(!click)
@@ -61,4 +61,4 @@ const Category = () => {
     );
 };
 
-export default Category;
+export default CategoryBar;

@@ -63,7 +63,7 @@ const Navbar = () => {
 
 
     // If the token doesn't exist or the path is "/dashboard", do not render the Navbar
-    if (isTokenExists || location.pathname.startsWith('/dashboard')) {
+    if (isTokenExists && location.pathname.startsWith('/dashboard')) {
         return null;
     }
     return (
