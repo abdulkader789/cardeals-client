@@ -2,8 +2,8 @@ import { Outlet } from 'react-router-dom';
 
 
 import UserDashboard from '../pages/UserDashboard';
-import Sidebar from '../components/Dashboard/Sidebar';
-import TopNav from '../components/Dashboard/TopNav';
+import Sidebar from '../components/Dashboard/Nav/Sidebar';
+import TopNav from '../components/Dashboard/Nav/TopNav';
 import { useAuth } from '../context/AuthContext';
 import useLoading from '../components/Loader/UseLoading';
 import LoadingBar from '../components/Loader/LoadingBar';

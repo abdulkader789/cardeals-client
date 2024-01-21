@@ -1,8 +1,8 @@
-import CategoryBar from './CategoryBar';
+import CategoryBar from '../Category/CategoryBar';
 import Projects from './Projects';
 import Tasks from './Tasks';
 import Header from './Header';
-import '../../styles/Dashboard.css'
+import '../../../styles/Dashboard.css'
 import { Link } from 'react-router-dom';
 const Sidebar = () => {
     return (

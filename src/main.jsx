@@ -18,7 +18,7 @@ import PrivateRoute from "./components/PrivateRoute";
 import Main from "./Layout/Main";
 import Dashboard from "./Layout/Dashboard";
 import Overview from "./components/Dashboard/Overview";
-import CategorySection from "./components/Dashboard/CategorySection";
+import CategorySection from "./components/Dashboard/Category/CategorySection";
 
 const router = createBrowserRouter([
   {
