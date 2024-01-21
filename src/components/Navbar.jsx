@@ -3,7 +3,7 @@ import '../styles/Navbar.css'
 import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faUser, faShoppingCart, faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext';
 const NavLinks = ({ visibility, homeNav }) => {
 
@@ -33,7 +33,7 @@ const NavIcons = ({ visibility }) => {
             <Link to='' className='icon-link'>
                 <FontAwesomeIcon icon={faSearch} className=" cursor-pointer nav-icon" />
             </Link >
-            <Link to={`/dashboard/${role}`} className='icon-link'>
+            <Link to='/dashboard' className='icon-link'>
                 <FontAwesomeIcon icon={faUser} className=" cursor-pointer nav-icon" />
             </Link>
             <Link to='/checkout' className='icon-link relative'>
@@ -49,7 +49,6 @@ const NavIcons = ({ visibility }) => {
 const Navbar = () => {
     const { authData } = useAuth();
     const isTokenExists = authData && authData.token;
-    const navigate = useNavigate()
 
     // If the token doesn't exist, redirect to the login page
 
@@ -60,6 +59,13 @@ const Navbar = () => {
         setIsNavOpen(!isNavOpen);
     };
 
+    const location = useLocation();
+
+
+    // If the token doesn't exist or the path is "/dashboard", do not render the Navbar
+    if (isTokenExists || location.pathname.startsWith('/dashboard')) {
+        return null;
+    }
     return (
         <nav className=" px-4 py-2 ">
             <div className="container mx-auto flex items-center justify-between navbar-container">

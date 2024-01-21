@@ -8,7 +8,6 @@ import {
 import "./index.css";
 import Home from "./pages/Home";
 import ErrorPage from "./error-page";
-import Main from "./pages/Main";
 import Contact from "./pages/Contact";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
@@ -16,7 +15,10 @@ import About from "./pages/About";
 import CheckoutPage from "./pages/CheckoutPage";
 import { AuthProvider } from "./context/AuthContext";
 import PrivateRoute from "./components/PrivateRoute";
-import DashboardRouting from "./components/Dashboard/DashboardRouting";
+import Main from "./Layout/Main";
+import Dashboard from "./Layout/Dashboard";
+import Overview from "./components/Dashboard/Overview";
+import CategorySection from "./components/Dashboard/CategorySection";
 
 const router = createBrowserRouter([
   {
@@ -49,14 +51,28 @@ const router = createBrowserRouter([
         path: "/about",
         element: <About />
       },
-      {
-        path: "/dashboard/:id",
-        element: <PrivateRoute> <DashboardRouting /></PrivateRoute>
 
-      },
       {
         path: "/checkout",
         element: <PrivateRoute><CheckoutPage /></PrivateRoute>
+      },
+
+      {
+        path: "/dashboard",
+        element: <PrivateRoute><Dashboard /></PrivateRoute>,
+        children: [
+
+          {
+            path: "",
+            element: <Overview />
+
+          },
+          {
+            path: "category", // This will render when the "/dashboard/test" route is accessed
+            element: <CategorySection />
+          }
+        ]
+
       },
 
     ]

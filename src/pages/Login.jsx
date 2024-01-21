@@ -24,6 +24,7 @@ const Login = () => {
             ...formData,
             [e.target.name]: e.target.value,
         });
+        console.log(formData)
     };
 
     // Handle form submission
@@ -63,8 +64,8 @@ const Login = () => {
 
             login(data)
             // Handle successful login, e.g., redirect to another page
-            const role = data?.user?.role === 1 ? 'admin' : 'user'
-            navigate(`/dashboard/${role}`);
+            // const role = data?.user?.role === 1 ? 'admin' : 'user'
+            navigate('/dashboard');
         } catch (error) {
             console.error("Error during login:", error);
             // Handle errors, e.g., show an error message to the user

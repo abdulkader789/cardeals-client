@@ -1,7 +1,9 @@
 import { Link } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
 
 const UnauthorizedUser = () => {
     return (
+
         <div className="flex flex-col items-center justify-center h-[600px]">
             <img
                 src="https://img.freepik.com/free-vector/page-found-concept-illustration_114360-1869.jpg" // Replace with the actual path to your logo or image
