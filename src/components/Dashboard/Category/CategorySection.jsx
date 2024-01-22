@@ -1,11 +1,32 @@
 import { useEffect, useState } from "react";
 import CategoryItem from "./CategoryItem";
 import { useAuth } from "../../../context/AuthContext";
+import CreateModal from "./CreateModal";
 
 
 const CategorySection = () => {
     const [categories, setCategories] = useState([]);
     const { authData } = useAuth();
+    const [isCreateModalOpen, setCreateModalOpen] = useState(false);
+    const [filteredCategories, setFilteredCategories] = useState([]);
+
+    const [searchTerm, setSearchTerm] = useState('');
+
+    const toggleCreateModal = () => {
+        setCreateModalOpen(!isCreateModalOpen);
+    };
+    // Function to handle search input change
+    const handleSearchChange = (e) => {
+        const searchTerm = e.target.value.toLowerCase();
+        setSearchTerm(searchTerm);
+
+        // Filter categories based on the search term
+        const filtered = categories.filter(category =>
+            category.name.toLowerCase().includes(searchTerm)
+        );
+
+        setFilteredCategories(filtered);
+    };
 
 
     const getAllCategories = async () => {
@@ -42,18 +63,20 @@ const CategorySection = () => {
     }, [])
 
     // React component
-    const createCategory = async (name) => {
+    const createCategory = async (name, status) => {
         try {
-            const response = await fetch('/api/categories', {
+            const response = await fetch('/api/category/create-category', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${authData.token}`,
                 },
-                body: JSON.stringify({ name }),
+                body: JSON.stringify({ name, status }),
             });
 
             if (response.ok) {
                 console.log('Category created successfully');
+                getAllCategories()
             } else {
                 console.error('Failed to create category');
             }
@@ -127,12 +150,16 @@ const CategorySection = () => {
 
 
 
-                    <button className="inline-flex px-5 py-3 text-white bg-red-400 hover:bg-red-700 focus:bg-purple-700 rounded-md ml-6 mb-3">
+                    <button onClick={toggleCreateModal} className="inline-flex px-5 py-3 text-white bg-red-400 hover:bg-red-700 focus:bg-purple-700 rounded-md ml-6 mb-3">
                         <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="flex-shrink-0 h-6 w-6 text-white -ml-1 mr-2">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
                         </svg>
                         Create Category
                     </button>
+                    {
+                        isCreateModalOpen ? <CreateModal createCategory={createCategory} setCreateModalOpen={setCreateModalOpen} /> : null
+                    }
+
                 </div>
             </div>
 
@@ -146,7 +173,11 @@ const CategorySection = () => {
                             <div className="relative w-20">
                                 <select
                                     className="appearance-none h-full  rounded-l border block appearance-none w-full bg-white border-gray-400 text-gray-700 py-2 px-4 pr-8 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
-                                    <option>{categories.length}</option>
+                                    <option>
+                                        {
+                                            searchTerm.length > 0 ? filteredCategories.length : categories.length
+                                        }
+                                    </option>
                                     <option>10</option>
                                     <option>20</option>
                                 </select>
@@ -172,6 +203,10 @@ const CategorySection = () => {
                                 </div>
                             </div>
                         </div>
+
+
+                        {/* Search Category Section */}
+
                         <div className="block relative w-full">
                             <span className="h-full absolute inset-y-0 left-0 flex items-center pl-2">
                                 <svg viewBox="0 0 24 24" className="h-4 w-4 fill-current text-gray-500">
@@ -180,7 +215,12 @@ const CategorySection = () => {
                                     </path>
                                 </svg>
                             </span>
-                            <input placeholder="Search"
+                            <input
+                                type="text"
+                                value={searchTerm}
+                                onChange={handleSearchChange}
+                                placeholder="Search categories..."
+
                                 className="appearance-none rounded-r rounded-l sm:rounded-l-none border border-gray-400 border-b block pl-8 pr-6 py-2 w-full bg-white text-sm placeholder-gray-400 text-gray-700 focus:bg-white focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none " />
                         </div>
                     </div>
@@ -208,9 +248,17 @@ const CategorySection = () => {
                                     </tr>
                                 </thead>
 
+
                                 {
-                                    categories.map(category => <CategoryItem key={category._id} category={category} updateCategory={updateCategory} deleteCategory={deleteCategory} />)
+                                    searchTerm.length > 0 ?
+                                        filteredCategories.map(category => <CategoryItem key={category._id} category={category} updateCategory={updateCategory} deleteCategory={deleteCategory} />)
+
+                                        : categories.map(category => <CategoryItem key={category._id} category={category} updateCategory={updateCategory} deleteCategory={deleteCategory} />)
                                 }
+
+                                {/* {
+                                    categories.map(category => <CategoryItem key={category._id} category={category} updateCategory={updateCategory} deleteCategory={deleteCategory} />)
+                                } */}
 
 
                             </table>

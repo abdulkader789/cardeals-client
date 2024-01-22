@@ -41,10 +41,12 @@ const CategoryBar = () => {
                 <ul className="flex flex-col mt-2 pl-2 text-gray-500 border-l border-gray-700 space-y-1 text-xs">
                     {/* <!-- Item --> */}
                     <li className="text-sm text-gray-500 ">
-                        <button
-                            className="flex items-center w-full py-1 px-2 rounded relative hover:text-white hover:bg-gray-700">
-                            <div>Category List </div>
-                        </button>
+                        <Link to='/dashboard/categorylist'>
+                            <button
+                                className="flex items-center w-full py-1 px-2 rounded relative hover:text-white hover:bg-gray-700">
+                                <div>Category List </div>
+                            </button>
+                        </Link>
                     </li>
                     {/* <!-- Item --> */}
                     <li className="text-sm text-gray-500 ">

@@ -19,6 +19,7 @@ import Main from "./Layout/Main";
 import Dashboard from "./Layout/Dashboard";
 import Overview from "./components/Dashboard/Overview";
 import CategorySection from "./components/Dashboard/Category/CategorySection";
+import CategoryList from "./components/Dashboard/Category/CategoryList";
 
 const router = createBrowserRouter([
   {
@@ -70,6 +71,10 @@ const router = createBrowserRouter([
           {
             path: "category", // This will render when the "/dashboard/test" route is accessed
             element: <CategorySection />
+          },
+          {
+            path: "categorylist", // This will render when the "/dashboard/test" route is accessed
+            element: <CategoryList />
           }
         ]
 
