@@ -4,9 +4,15 @@ import Tasks from './Tasks';
 import Header from './Header';
 import '../../../styles/Dashboard.css'
 import { Link } from 'react-router-dom';
+import { useSidebar } from '../../../context/SidebarContext';
 const Sidebar = () => {
+
+    const { isOpen } = useSidebar()
+
+
     return (
-        < div className="sidebar fixed max-h-screen  h-screen bg-gray-800 text-blue-100 w- inset-y-0 left-0 transform transition duration-200 ease-in-out z-50" >
+        <div className={`fixed max-h-screen -translate-x-full h-screen bg-gray-800 text-blue-100 w-64 inset-y-0 left-0 transform transition duration-200 ease-in-out z-50 ${isOpen ? '' : 'md:translate-x-0 md:sticky'}`}>
+
             <Header />
             <nav className="px-4 pt-4  scroller overflow-y-scroll max-h-[calc(100vh-64px)]" >
                 <ul className="flex flex-col space-y-2">

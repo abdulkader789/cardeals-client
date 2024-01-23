@@ -20,6 +20,7 @@ import Dashboard from "./Layout/Dashboard";
 import Overview from "./components/Dashboard/Overview";
 import CategorySection from "./components/Dashboard/Category/CategorySection";
 import CategoryList from "./components/Dashboard/Category/CategoryList";
+import { SidebarProvider } from "./context/SidebarContext";
 
 const router = createBrowserRouter([
   {
@@ -97,7 +98,11 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <AuthProvider>
-      <RouterProvider router={router} />
+      <SidebarProvider>
+        <RouterProvider router={router} />
+
+      </SidebarProvider>
+
     </AuthProvider>
   </React.StrictMode>
 );
