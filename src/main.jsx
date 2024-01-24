@@ -21,6 +21,9 @@ import Overview from "./components/Dashboard/Overview";
 import CategorySection from "./components/Dashboard/Category/CategorySection";
 import CategoryList from "./components/Dashboard/Category/CategoryList";
 import { SidebarProvider } from "./context/SidebarContext";
+import ProductSection from "./components/Dashboard/Product/ProductSection";
+import CreateProduct from "./components/Dashboard/Product/CreateProduct";
+import CreateCategory from "./components/Dashboard/Category/CreateCategory";
 
 const router = createBrowserRouter([
   {
@@ -76,6 +79,18 @@ const router = createBrowserRouter([
           {
             path: "categorylist", // This will render when the "/dashboard/test" route is accessed
             element: <CategoryList />
+          },
+          {
+            path: "createcategory", // This will render when the "/dashboard/test" route is accessed
+            element: <CreateCategory />
+          },
+          {
+            path: "product", // This will render when the "/dashboard/test" route is accessed
+            element: <ProductSection />
+          },
+          {
+            path: "createproduct", // This will render when the "/dashboard/test" route is accessed
+            element: <CreateProduct />
           }
         ]
 

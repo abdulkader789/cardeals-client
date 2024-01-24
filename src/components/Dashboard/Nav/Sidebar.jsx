@@ -1,7 +1,6 @@
 import CategoryBar from '../Category/CategoryBar';
-import Projects from './Projects';
+import ProductBar from '../Product/ProductBar';
 import Tasks from './Tasks';
-import Header from './Header';
 import '../../../styles/Dashboard.css'
 import { Link } from 'react-router-dom';
 import { useSidebar } from '../../../context/SidebarContext';
@@ -11,9 +10,29 @@ const Sidebar = () => {
 
 
     return (
-        <div className={`fixed max-h-screen -translate-x-full h-screen bg-gray-800 text-blue-100 w-64 inset-y-0 left-0 transform transition duration-200 ease-in-out z-50 ${isOpen ? '' : 'md:translate-x-0 md:sticky'}`}>
+        <div className={`fixed max-h-screen  h-screen bg-gray-800 text-blue-100 w-64 inset-y-0 left-0 transform transition duration-200 ease-in-out z-50 ${isOpen ? 'md:-translate-x-full -translate-x-0 ' : '-translate-x-full md:-translate-x-0'}`}>
 
-            <Header />
+            <header className=" h-[64px] relative py-2 shadow-lg px-4 md:sticky top-0 bg-gray-800 z-40">
+                <Link to='/home' className="text-white flex items-center space-x-2 group hover:text-white">
+                    <div>
+                        <svg className="h-8 w-8 transition-transform duration-300 group-hover:-rotate-45 " fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
+                                d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+
+                    </div>
+
+                    <div>
+                        <span className="text-2xl nav-logo font-extrabold uppercase">
+                            cardeals
+                        </span>
+                        <span className="text-xs block">Dashboard Management</span>
+                    </div>
+                </Link>
+            </header>
+
             <nav className="px-4 pt-4  scroller overflow-y-scroll max-h-[calc(100vh-64px)]" >
                 <ul className="flex flex-col space-y-2">
                     <li className="text-sm text-gray-500 ">
@@ -62,7 +81,7 @@ const Sidebar = () => {
                     </div>
 
                     <CategoryBar />
-                    <Projects />
+                    <ProductBar />
                     <Tasks />
 
                 </ul>
