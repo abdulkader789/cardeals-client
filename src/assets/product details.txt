@@ -1,0 +1,233 @@
+
+Sample products associated with the "Sedans" category:
+
+
+Product 1:
+
+Name: Elegant Executive
+Model: EE2022
+Description: The Elegant Executive is a sophisticated sedan that combines style with advanced features. Perfect for executives who appreciate luxury.
+Price: $55,000
+Quantity: 15
+Seating Capacity: 5
+Engine: V6
+Transmission: Automatic
+Fuel Efficiency: 28 mpg
+Color: Deep Silver
+Range: 380 miles
+Acceleration: 0-60 in 5.5 seconds
+Charging Time: N/A
+Popular: Yes
+Trending: Yes
+Clearance: No
+Availability: In Stock
+Product 2:
+
+Name: Classic Comfort
+Model: CC2022
+Description: The Classic Comfort sedan offers a timeless design and exceptional comfort. An ideal choice for those who value a smooth ride.
+Price: $50,000
+Quantity: 20
+Seating Capacity: 4
+Engine: Inline-4
+Transmission: Automatic
+Fuel Efficiency: 30 mpg
+Color: Midnight Blue
+Range: 350 miles
+Acceleration: 0-60 in 6 seconds
+Charging Time: N/A
+Popular: No
+Trending: No
+Clearance: No
+Availability: In Stock
+Product 3:
+
+Name: Executive Elegance
+Model: EX2022
+Description: The Executive Elegance sedan boasts a sleek design and advanced technology for a luxurious driving experience.
+Price: $60,000
+Quantity: 12
+Seating Capacity: 5
+Engine: V8
+Transmission: Automatic
+Fuel Efficiency: 25 mpg
+Color: Pearl White
+Range: 400 miles
+Acceleration: 0-60 in 5 seconds
+Charging Time: N/A
+Popular: Yes
+Trending: Yes
+Clearance: No
+Availability: In Stock
+Product 4:
+
+Name: Urban Elite
+Model: UE2022
+Description: The Urban Elite sedan is designed for city living, offering a blend of style and practicality for urban commuters.
+Price: $48,000
+Quantity: 18
+Seating Capacity: 5
+Engine: Inline-6
+Transmission: Automatic
+Fuel Efficiency: 32 mpg
+Color: Urban Gray
+Range: 370 miles
+Acceleration: 0-60 in 5.8 seconds
+Charging Time: N/A
+Popular: No
+Trending: Yes
+Clearance: No
+Availability: In Stock
+Product 5:
+
+Name: Supreme Luxury
+Model: SL2022
+Description: The Supreme Luxury sedan redefines opulence, offering top-tier comfort and performance for those who seek the best.
+Price: $70,000
+Quantity: 10
+Seating Capacity: 4
+Engine: V12
+Transmission: Automatic
+Fuel Efficiency: 22 mpg
+Color: Royal Red
+Range: 420 miles
+Acceleration: 0-60 in 4.5 seconds
+Charging Time: N/A
+Popular: Yes
+Trending: Yes
+Clearance: No
+Availability: In Stock
+Product 6:
+
+Name: Sporty Sedan
+Model: SS2022
+Description: The Sporty Sedan combines performance with elegance, offering a thrilling driving experience in a sleek and stylish package.
+Price: $45,000
+Quantity: 25
+Seating Capacity: 5
+Engine: Turbocharged V6
+Transmission: Automatic
+Fuel Efficiency: 26 mpg
+Color: Racing Green
+Range: 360 miles
+Acceleration: 0-60 in 5.7 seconds
+Charging Time: N/A
+Popular: No
+Trending: Yes
+Clearance: No
+Availability: In Stock
+
+Product 7:
+
+Name: Modern Maven
+Model: MM2022
+Description: The Modern Maven sedan offers a contemporary design and advanced technology features. A perfect choice for those who appreciate modern aesthetics.
+Price: $52,000
+Quantity: 22
+Seating Capacity: 4
+Engine: Inline-4
+Transmission: Automatic
+Fuel Efficiency: 29 mpg
+Color: Silver Frost
+Range: 390 miles
+Acceleration: 0-60 in 5.2 seconds
+Charging Time: N/A
+Popular: No
+Trending: Yes
+Clearance: No
+Availability: In Stock
+Product 8:
+
+Name: Executive Classique
+Model: EC2022
+Description: The Executive Classique sedan exudes timeless class and sophistication. Experience a harmonious blend of luxury and performance.
+Price: $58,000
+Quantity: 16
+Seating Capacity: 5
+Engine: V8
+Transmission: Automatic
+Fuel Efficiency: 26 mpg
+Color: Ivory White
+Range: 410 miles
+Acceleration: 0-60 in 4.8 seconds
+Charging Time: N/A
+Popular: Yes
+Trending: Yes
+Clearance: No
+Availability: In Stock
+Product 9:
+
+Name: Serene Sedan
+Model: SS2022
+Description: The Serene Sedan focuses on providing a serene and quiet driving experience. Enjoy a tranquil journey in this refined sedan.
+Price: $55,000
+Quantity: 20
+Seating Capacity: 4
+Engine: Hybrid
+Transmission: Automatic
+Fuel Efficiency: 33 mpg
+Color: Ocean Blue
+Range: 380 miles
+Acceleration: 0-60 in 5.5 seconds
+Charging Time: N/A
+Popular: No
+Trending: Yes
+Clearance: No
+Availability: In Stock
+Product 10:
+
+Name: Luxe Cruiser
+Model: LC2022
+Description: The Luxe Cruiser sedan is a luxurious vehicle that prioritizes comfort and style. Elevate your driving experience with this opulent choice.
+Price: $65,000
+Quantity: 14
+Seating Capacity: 5
+Engine: V12
+Transmission: Automatic
+Fuel Efficiency: 24 mpg
+Color: Champagne Gold
+Range: 430 miles
+Acceleration: 0-60 in 4.3 seconds
+Charging Time: N/A
+Popular: Yes
+Trending: Yes
+Clearance: No
+Availability: In Stock
+Product 11:
+
+Name: Sleek Sensation
+Model: SS2022
+Description: The Sleek Sensation sedan is designed to make a statement with its sleek and aerodynamic profile. Experience the sensation of driving in style.
+Price: $48,000
+Quantity: 18
+Seating Capacity: 4
+Engine: Turbocharged Inline-6
+Transmission: Automatic
+Fuel Efficiency: 27 mpg
+Color: Magnetic Gray
+Range: 370 miles
+Acceleration: 0-60 in 5.8 seconds
+Charging Time: N/A
+Popular: No
+Trending: Yes
+Clearance: No
+Availability: In Stock
+Product 12:
+
+Name: Elite Emissary
+Model: EE2022
+Description: The Elite Emissary sedan embodies prestige and elegance, making a lasting impression wherever it goes. Elevate your status with this elite choice.
+Price: $70,000
+Quantity: 12
+Seating Capacity: 5
+Engine: V8
+Transmission: Automatic
+Fuel Efficiency: 25 mpg
+Color: Royal Burgundy
+Range: 400 miles
+Acceleration: 0-60 in 4.9 seconds
+Charging Time: N/A
+Popular: Yes
+Trending: Yes
+Clearance: No
+Availability: In Stock
