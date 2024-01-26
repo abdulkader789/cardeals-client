@@ -1,7 +1,7 @@
 
-const DeleteModal = ({ setDeleteModalOpen, deleteCategory, category }) => {
+const DeleteModal = ({ setDeleteModalOpen, deleteProduct, Product }) => {
     const handleDeleteClick = () => {
-        deleteCategory(category._id)
+        deleteProduct(Product._id)
         setDeleteModalOpen(prevOpen => !prevOpen)
     }
 
@@ -17,11 +17,11 @@ const DeleteModal = ({ setDeleteModalOpen, deleteCategory, category }) => {
                 <div className="inline-block align-center bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full" role="dialog" aria-modal="true" aria-labelledby="modal-headline">
                     <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
                         <h3 className="text-lg leading-6 font-medium text-gray-900">
-                            Delete Category
+                            Delete Product
                         </h3>
                         <div className="mt-2">
                             <p className="text-sm leading-5 text-gray-500">
-                                Are you sure you want to delete {category.name} ? All of your data will be permanantly removed. This action cannot be undone.
+                                Are you sure you want to delete {Product.name} ? All of your data will be permanantly removed. This action cannot be undone.
                             </p>
                         </div>
 

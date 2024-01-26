@@ -10,33 +10,34 @@ export const useCategory = () => {
 
 // Create the AuthProvider component
 export const CategoryProvider = ({ children }) => {
-    // State to store user information
+    // State to store category information
     const [categoryData, setCategoryData] = useState(null);
 
-
-    // Function to set user data and token in localStorage
-    const getCategory = (categoryData) => {
-        localStorage.setItem('categoryData', JSON.stringify(categoryData));
-        setCategoryData(categoryData);
-
+    // Function to fetch categories and set them in the state
+    const fetchCategories = async () => {
+        try {
+            const response = await fetch('/api/category/get-all-categories');
+            if (response.ok) {
+                const categories = await response.json();
+                setCategoryData(categories);
+            } else {
+                throw new Error('Failed to fetch categories');
+            }
+        } catch (error) {
+            console.error('Error fetching categories:', error);
+        }
     };
 
-
-    // Effect to load user data from localStorage on component mount
+    // Effect to fetch categories from API on component mount
     useEffect(() => {
-        const storedCategoryData = localStorage.getItem('categoryData');
-
-        if (storedCategoryData) {
-            setCategoryData(JSON.parse(storedCategoryData));
-
-        }
+        fetchCategories();
     }, []); // Run only on component mount
 
     // Value to be provided by the context
     const value = {
         categoryData,
         setCategoryData,
-        getCategory
+        fetchCategories
     };
 
     return <CategoryContext.Provider value={value}>{children}</CategoryContext.Provider>;

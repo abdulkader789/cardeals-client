@@ -12,7 +12,7 @@ import Contact from "./pages/Contact";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import About from "./pages/About";
-import CheckoutPage from "./pages/CheckoutPage";
+import CartPage from "./pages/CartPage";
 import { AuthProvider } from "./context/AuthContext";
 import PrivateRoute from "./components/PrivateRoute";
 import Main from "./Layout/Main";
@@ -24,6 +24,10 @@ import { SidebarProvider } from "./context/SidebarContext";
 import ProductSection from "./components/Dashboard/Product/ProductSection";
 import CreateProduct from "./components/Dashboard/Product/CreateProduct";
 import CreateCategory from "./components/Dashboard/Category/CreateCategory";
+import Shop from "./pages/Shop";
+import { CategoryProvider } from "./context/CategoryContext";
+import { ProductProvider } from "./context/ProductContext";
+import { SearchProductProvider } from "./context/SearchProductContext";
 
 const router = createBrowserRouter([
   {
@@ -58,8 +62,12 @@ const router = createBrowserRouter([
       },
 
       {
-        path: "/checkout",
-        element: <PrivateRoute><CheckoutPage /></PrivateRoute>
+        path: "/cart",
+        element: <PrivateRoute><CartPage /></PrivateRoute>
+      },
+      {
+        path: "/shop",
+        element: <Shop />
       },
 
       {
@@ -112,12 +120,16 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <AuthProvider>
-      <SidebarProvider>
-        <RouterProvider router={router} />
-
-      </SidebarProvider>
-
-    </AuthProvider>
+    <CategoryProvider>
+      <ProductProvider>
+        <SearchProductProvider>
+          <AuthProvider>
+            <SidebarProvider>
+              <RouterProvider router={router} />
+            </SidebarProvider>
+          </AuthProvider>
+        </SearchProductProvider>
+      </ProductProvider>
+    </CategoryProvider>
   </React.StrictMode>
 );

@@ -1,7 +1,7 @@
 import '../styles/CheckoutPage.css'
 import LoadingBar from '../components/Loader/LoadingBar';
 import useLoading from '../components/Loader/UseLoading';
-const CheckoutPage = () => {
+const CartPage = () => {
     const isLoading = useLoading()
     return (
         isLoading ? <LoadingBar /> :
@@ -137,4 +137,4 @@ const CheckoutPage = () => {
     );
 };
 
-export default CheckoutPage;
+export default CartPage;

@@ -1,11 +1,11 @@
 import { useState } from "react";
 
-const UpdateModal = ({ setUpdateModalOpen, category, updateCategory }) => {
-    const [categoryName, setCategoryName] = useState(category.name);
+const UpdateModal = ({ setUpdateModalOpen, Product, updateProduct }) => {
+    const [ProductName, setProductName] = useState(Product.name);
     const [isActive, setIsActive] = useState(true); // Default to 'Active'
 
     const handleUpdateClick = () => {
-        updateCategory(category._id, categoryName, isActive);
+        updateProduct(Product._id, ProductName, isActive);
         setUpdateModalOpen(prevOpen => !prevOpen);
 
     };
@@ -25,8 +25,8 @@ const UpdateModal = ({ setUpdateModalOpen, category, updateCategory }) => {
                 <div className="inline-block align-center bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full" role="dialog" aria-modal="true" aria-labelledby="modal-headline">
                     <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
                         <label className="font-medium text-gray-800">Name</label>
-                        <input value={categoryName}
-                            onChange={(e) => setCategoryName(e.target.value)}
+                        <input value={ProductName}
+                            onChange={(e) => setProductName(e.target.value)}
                             type="text" className="w-full border-[1px] border-gray-400 outline-none rounded bg-gray-100 p-2 mt-2 mb-3" />
 
                         <label className="font-medium text-gray-800">Status</label>
