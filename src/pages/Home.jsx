@@ -1,8 +1,9 @@
 import { Header } from "../components/Home/Header";
 import Hero from "../components/Home/Hero";
-import Priority from "../components/Home/Priority";
+
 import TrustReasons from "../components/Home/TrustReasons";
 import VideoPlayer from "../components/utils/VideoPlayer";
+import BuyReasons from "../components/Home/BuyReasons";
 
 const Home = () => {
     return (
@@ -15,7 +16,7 @@ const Home = () => {
 
             <TrustReasons />
 
-            <Priority />
+            <BuyReasons />
 
 
 

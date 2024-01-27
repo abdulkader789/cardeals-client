@@ -6,11 +6,11 @@ import { Link } from 'react-router-dom';
 import { useSidebar } from '../../../context/SidebarContext';
 const Sidebar = () => {
 
-    const { isOpen } = useSidebar()
+    const { isSidebarOpen } = useSidebar()
 
 
     return (
-        <div className={`fixed max-h-screen  h-screen bg-gray-800 text-blue-100 w-64 inset-y-0 left-0 transform transition duration-200 ease-in-out z-50 ${isOpen ? 'md:-translate-x-full -translate-x-0 ' : '-translate-x-full md:-translate-x-0'}`}>
+        <div className={`fixed max-h-screen  h-screen bg-gray-800 text-blue-100 w-64 inset-y-0 left-0 transform transition duration-200 ease-in-out z-50 ${isSidebarOpen ? 'md:-translate-x-full -translate-x-0 ' : '-translate-x-full md:-translate-x-0'}`}>
 
             <header className=" h-[64px] relative py-2 shadow-lg px-4 md:sticky top-0 bg-gray-800 z-40">
                 <Link to='/home' className="text-white flex items-center space-x-2 group hover:text-white">

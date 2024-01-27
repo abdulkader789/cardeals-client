@@ -14,7 +14,7 @@ const Dashboard = () => {
     const { authData } = useAuth();
     const role = authData && authData.user && authData.user.role === 1 ? 'admin' : 'user';
 
-    const { isOpen } = useSidebar();
+    const { isSidebarOpen } = useSidebar();
 
 
     if (role == 'user') {
@@ -24,7 +24,7 @@ const Dashboard = () => {
         return (
             isLoading ? <LoadingBar /> :
 
-                <div className={`${isOpen ? 'flex-col-1' : 'md:flex'}`}>
+                <div className={`${isSidebarOpen ? 'flex-col-1' : 'md:flex'}`}>
                     <div className='w-64'>
                         <Sidebar />
                     </div>

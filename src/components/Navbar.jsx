@@ -21,7 +21,7 @@ const NavLinks = ({ visibility, homeNav }) => {
 
 }
 
-const NavIcons = ({ visibility, setSearchOpen }) => {
+const NavIcons = ({ visibility }) => {
     const { authData } = useAuth()
     const isLoggedIn = authData && authData.user;
 
@@ -30,8 +30,8 @@ const NavIcons = ({ visibility, setSearchOpen }) => {
 
     return (
         <div className={`${visibility} md:flex items-center space-x-10 `} >
-            <Link to='' className='icon-link'>
-                <FontAwesomeIcon onClick={() => setSearchOpen(prev => !prev)} icon={faSearch} className=" cursor-pointer nav-icon" />
+            <Link to='/search' className='icon-link'>
+                <FontAwesomeIcon icon={faSearch} className=" cursor-pointer nav-icon" />
             </Link >
             <Link to='/dashboard' className='icon-link'>
                 <FontAwesomeIcon icon={faUser} className=" cursor-pointer nav-icon" />
@@ -107,26 +107,7 @@ const Navbar = () => {
 
             </div>
 
-            {/* Search Box */}
-            <div className={`${isSearchOpen ? 'block' : 'hidden'}  flex justify-center items-center`}>
-                <div className="container mx-7 bg-indigo-500  p-5">
-                    <form>
 
-                        <div className="sm:flex items-center bg-white rounded-lg overflow-hidden px-2 py-1 justify-between">
-                            <input
-                                className="text-base text-gray-400 flex-grow outline-none px-2 border-none"
-                                type="text"
-                                placeholder="Search your car name"
-                                style={{ boxShadow: 'none', outline: 'none', color: 'black' }}
-                            // Override the box-shadow and outline styles
-                            />                           <div className="flex items-center px-2 rounded-lg space-x-4 mx-auto">
-
-                                <button className="bg-indigo-500 text-white text-base rounded-lg px-4 py-2 font-thin">Search</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
 
 
 

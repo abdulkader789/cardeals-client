@@ -27,7 +27,11 @@ import CreateCategory from "./components/Dashboard/Category/CreateCategory";
 import Shop from "./pages/Shop";
 import { CategoryProvider } from "./context/CategoryContext";
 import { ProductProvider } from "./context/ProductContext";
-import { SearchProductProvider } from "./context/SearchProductContext";
+
+
+import { SearchProvider } from "./context/SearchContext";
+import SearchProduct from "./pages/SearchProduct";
+import ProductDetails from "./components/ProductDetails";
 
 const router = createBrowserRouter([
   {
@@ -69,7 +73,15 @@ const router = createBrowserRouter([
         path: "/shop",
         element: <Shop />
       },
+      {
+        path: "/shop/product/:id",
+        element: <ProductDetails />
+      },
 
+      {
+        path: "/search",
+        element: <SearchProduct />
+      },
       {
         path: "/dashboard",
         element: <PrivateRoute><Dashboard /></PrivateRoute>,
@@ -120,16 +132,18 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <CategoryProvider>
-      <ProductProvider>
-        <SearchProductProvider>
+    <SearchProvider>
+      <CategoryProvider>
+        <ProductProvider>
+
           <AuthProvider>
             <SidebarProvider>
               <RouterProvider router={router} />
             </SidebarProvider>
           </AuthProvider>
-        </SearchProductProvider>
-      </ProductProvider>
-    </CategoryProvider>
+
+        </ProductProvider>
+      </CategoryProvider>
+    </SearchProvider>
   </React.StrictMode>
 );

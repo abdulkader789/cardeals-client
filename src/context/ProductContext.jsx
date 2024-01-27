@@ -17,12 +17,15 @@ export const ProductProvider = ({ children }) => {
     const fetchProducts = async () => {
         try {
             const response = await fetch('/api/product/get-all-products');
+
             if (response.ok) {
-                const products = await response.json();
-                setProductData(products);
+                const data = await response.json();
+                setProductData(data.products);
+
             } else {
                 throw new Error('Failed to fetch products');
             }
+
         } catch (error) {
             console.error('Error fetching products:', error);
         }

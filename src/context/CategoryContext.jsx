@@ -18,8 +18,9 @@ export const CategoryProvider = ({ children }) => {
         try {
             const response = await fetch('/api/category/get-all-categories');
             if (response.ok) {
-                const categories = await response.json();
-                setCategoryData(categories);
+                const data = await response.json();
+                setCategoryData(data.categories);
+
             } else {
                 throw new Error('Failed to fetch categories');
             }

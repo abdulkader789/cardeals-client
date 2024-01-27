@@ -14,10 +14,10 @@ export const SidebarProvider = ({ children }) => {
 
 
 
-    const [isOpen, setIsOpen] = useState(false);
+    const [isSidebarOpen, setSidebarOpen] = useState(false);
 
     const toggleSidebar = () => {
-        setIsOpen(!isOpen);
+        setSidebarOpen(!isSidebarOpen);
     };
     const [isMobileOpen, setMobileOpen] = useState(false);
 
@@ -28,7 +28,7 @@ export const SidebarProvider = ({ children }) => {
 
     // Value to be provided by the context
     const value = {
-        isOpen, toggleSidebar, isMobileOpen, toggleMobilebar
+        isSidebarOpen, toggleSidebar, isMobileOpen, toggleMobilebar
     };
 
     return <SidebarContext.Provider value={value}>{children}</SidebarContext.Provider>;
