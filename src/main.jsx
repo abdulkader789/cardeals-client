@@ -17,13 +17,13 @@ import { AuthProvider } from "./context/AuthContext";
 import PrivateRoute from "./components/PrivateRoute";
 import Main from "./Layout/Main";
 import Dashboard from "./Layout/Dashboard";
-import Overview from "./components/Dashboard/Overview";
-import CategorySection from "./components/Dashboard/Category/CategorySection";
-import CategoryList from "./components/Dashboard/Category/CategoryList";
+import Overview from "./components/AdminDashboard/Overview";
+import CategorySection from "./components/AdminDashboard/Category/CategorySection";
+import CategoryList from "./components/AdminDashboard/Category/CategoryList";
 import { SidebarProvider } from "./context/SidebarContext";
-import ProductSection from "./components/Dashboard/Product/ProductSection";
-import CreateProduct from "./components/Dashboard/Product/CreateProduct";
-import CreateCategory from "./components/Dashboard/Category/CreateCategory";
+import ProductSection from "./components/AdminDashboard/Product/ProductSection";
+import CreateProduct from "./components/AdminDashboard/Product/CreateProduct";
+import CreateCategory from "./components/AdminDashboard/Category/CreateCategory";
 import Shop from "./pages/Shop";
 import { CategoryProvider } from "./context/CategoryContext";
 import { ProductProvider } from "./context/ProductContext";
@@ -32,6 +32,8 @@ import { ProductProvider } from "./context/ProductContext";
 import { SearchProvider } from "./context/SearchContext";
 import SearchProduct from "./pages/SearchProduct";
 import ProductDetails from "./components/ProductDetails";
+import OrderPage from "./pages/OrderPage";
+import { CartProvider } from "./context/CartContext";
 
 const router = createBrowserRouter([
   {
@@ -71,11 +73,18 @@ const router = createBrowserRouter([
       },
       {
         path: "/shop",
-        element: <Shop />
+        element: <Shop />,
+
       },
       {
         path: "/shop/product/:id",
-        element: <ProductDetails />
+        element: <ProductDetails />,
+
+      },
+      {
+        path: "/order/:id",
+        element: <OrderPage />,
+
       },
 
       {
@@ -132,18 +141,20 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <SearchProvider>
-      <CategoryProvider>
-        <ProductProvider>
+    <CartProvider>
+      <SearchProvider>
+        <CategoryProvider>
+          <ProductProvider>
 
-          <AuthProvider>
-            <SidebarProvider>
-              <RouterProvider router={router} />
-            </SidebarProvider>
-          </AuthProvider>
+            <AuthProvider>
+              <SidebarProvider>
+                <RouterProvider router={router} />
+              </SidebarProvider>
+            </AuthProvider>
 
-        </ProductProvider>
-      </CategoryProvider>
-    </SearchProvider>
+          </ProductProvider>
+        </CategoryProvider>
+      </SearchProvider>
+    </CartProvider>
   </React.StrictMode>
 );

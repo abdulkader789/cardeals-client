@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import LoadingBar from './Loader/LoadingBar';
+import { useCart } from '../context/CartContext';
+
 
 const ProductDetails = () => {
     const { id } = useParams();
     const [product, setProduct] = useState(null);
+    const { addToCart } = useCart();
+    const navigate = useNavigate()
 
     useEffect(() => {
         const fetchProduct = async () => {
@@ -23,8 +27,15 @@ const ProductDetails = () => {
         fetchProduct();
     }, [id]);
 
+    const handleBuy = () => {
+        if (product) {
+            addToCart(product);
+            navigate(`/order/${id}`);
+        }
+    };
+
     if (!product) {
-        return <LoadingBar />
+        return <LoadingBar />;
     }
 
     return (
@@ -43,7 +54,7 @@ const ProductDetails = () => {
                         </div>
                         <div className="flex">
                             <span className="title-font font-medium text-2xl text-gray-900">${product.price}</span>
-                            <button className="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">Buy</button>
+                            <button onClick={handleBuy} className="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">Buy</button>
 
                         </div>
                     </div>

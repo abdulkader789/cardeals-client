@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useCategory } from "../context/CategoryContext";
 import { useProduct } from "../context/ProductContext";
-import ProductCard from "../components/Dashboard/Product/ProductCard";
+import ProductCard from "../components/AdminDashboard/Product/ProductCard";
 import LoadingBar from "../components/Loader/LoadingBar";
 
 const Shop = () => {

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useSearch } from "../context/SearchContext";
 import { useProduct } from "../context/ProductContext";
-import ProductCard from "../components/Dashboard/Product/ProductCard";
+import ProductCard from "../components/AdminDashboard/Product/ProductCard";
 
 const SearchProduct = () => {
     const { searchQuery, setSearchQuery } = useSearch();

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import ProductCard from '../Dashboard/Product/ProductCard';
+import ProductCard from '../AdminDashboard/Product/ProductCard';
 import { Link } from 'react-router-dom';
 import { useProduct } from '../../context/ProductContext';
 import { useCategory } from '../../context/CategoryContext';
