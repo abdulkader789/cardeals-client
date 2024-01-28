@@ -29,7 +29,7 @@ const Dashboard = () => {
                         <Sidebar />
                     </div>
 
-                    <div className='flex-1 flex-col flex '>
+                    <div className='flex-1 flex-col flex w-full'>
                         <TopNav />
                         <Outlet />
                     </div>

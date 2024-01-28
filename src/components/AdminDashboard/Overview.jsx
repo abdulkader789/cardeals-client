@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useUsers } from "../../context/UserContext";
 import { Link } from "react-router-dom";
 import { useOrders } from "../../context/OrderContext";
+import { useProduct } from "../../context/ProductContext";
 
 const Overview = () => {
     const background = {
@@ -12,11 +13,40 @@ const Overview = () => {
     }
     const { usersData } = useUsers()
     const { ordersData } = useOrders()
-    console.log(ordersData)
+    const { productData } = useProduct()
     // Empty dependency array to ensure the effect runs only once
     const pendingOrders = ordersData.filter(order => order.status === 'Pending');
     const confirmedOrders = ordersData.filter(order => order.status === 'Confirmed');
+    const confirmedOrderIds = confirmedOrders.map(order => order.productId);
+    const [confirmedProducts, setConfirmedProducts] = useState([]);
+    const [totalPrice, setTotalPrice] = useState(0);
+    // Make a request to fetch all confirmed orders based on their IDs
+    useEffect(() => {
+        async function fetchConfirmedOrders() {
+            try {
+                const response = await fetch('/api/order/get-all-confirmed-orders', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ ids: confirmedOrderIds })
+                });
+                if (!response.ok) {
+                    throw new Error('Failed to fetch confirmed orders');
+                }
+                const data = await response.json();
+                // Handle the response data
+                setConfirmedProducts(data.products)
+                setTotalPrice(data.totalPrice)
+                console.log('Confirmed products:', data.products);
+                console.log('Confirmed total price:', data.totalPrice);
+            } catch (error) {
+                console.error('Error:', error.message);
+            }
+        }
 
+        fetchConfirmedOrders();
+    }, []);
     return (
         <main className="p-6 sm:p-10 space-y-6">
 
@@ -73,7 +103,7 @@ const Overview = () => {
                         </svg>
                     </div>
                     <div>
-                        <span className="block text-2xl text-white font-bold">303300</span>
+                        <span className="block text-2xl text-white font-bold">${totalPrice}</span>
                         <span className="block text-white">Total Income</span>
                     </div>
                 </div>

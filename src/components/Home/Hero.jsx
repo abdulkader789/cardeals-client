@@ -6,6 +6,8 @@ import { useCategory } from '../../context/CategoryContext';
 
 const Hero = () => {
 
+
+
     const { productData } = useProduct()
     const { categoryData } = useCategory()
     const [filteredProducts, setFilteredProducts] = useState([]);

@@ -15,7 +15,7 @@ export const UserProvider = ({ children }) => {
     useEffect(() => {
         async function fetchUsers() {
             try {
-                const response = await fetch('/api/user/get-all-users'); // Adjust the URL as per your server configuration
+                const response = await fetch('/api/auth/get-all-users'); // Adjust the URL as per your server configuration
                 if (!response.ok) {
                     throw new Error('Failed to fetch users');
                 }
