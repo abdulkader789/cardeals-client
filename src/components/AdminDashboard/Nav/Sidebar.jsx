@@ -4,6 +4,8 @@ import Tasks from './Tasks';
 import '../../../styles/Dashboard.css'
 import { Link } from 'react-router-dom';
 import { useSidebar } from '../../../context/SidebarContext';
+import UserBar from '../User/UserBar';
+
 const Sidebar = () => {
 
     const { isSidebarOpen } = useSidebar()
@@ -79,7 +81,7 @@ const Sidebar = () => {
                     <div className="section border-b pt-4 mb-4 text-xs text-gray-600 border-gray-700 pb-1 pl-3">
                         Managment
                     </div>
-
+                    <UserBar />
                     <CategoryBar />
                     <ProductBar />
                     <Tasks />

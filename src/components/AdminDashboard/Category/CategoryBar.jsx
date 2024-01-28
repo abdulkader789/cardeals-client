@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTags } from '@fortawesome/free-solid-svg-icons';
 const CategoryBar = () => {
     const [click, setClick] = useState(false)
     const handleClick = () => {
@@ -17,10 +18,8 @@ const CategoryBar = () => {
                 className="flex items-center w-full py-1 px-2 rounded relative hover:text-white hover:bg-gray-700">
 
                 <div className="pr-2">
-                    <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
-                            d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
-                    </svg>
+                    <FontAwesomeIcon icon={faTags} />
+
                 </div>
                 <div>Category</div>
                 <div className="absolute right-1.5 transition-transform duration-300">
@@ -49,15 +48,6 @@ const CategoryBar = () => {
                         </Link>
                     </li>
 
-                    {/* <!-- Item --> */}
-                    <li className="text-sm text-gray-500 ">
-                        <Link to='/dashboard/categorylist'>
-                            <button
-                                className="flex items-center w-full py-1 px-2 rounded relative hover:text-white hover:bg-gray-700">
-                                <div>Category List </div>
-                            </button>
-                        </Link>
-                    </li>
                     {/* <!-- Item --> */}
                     <li className="text-sm text-gray-500 ">
                         <Link to='/dashboard/createcategory'>

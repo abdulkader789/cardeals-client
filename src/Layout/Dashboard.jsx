@@ -7,6 +7,7 @@ import { useAuth } from '../context/AuthContext';
 import useLoading from '../components/Loader/UseLoading';
 import LoadingBar from '../components/Loader/LoadingBar';
 import { useSidebar } from '../context/SidebarContext';
+import { Outlet } from 'react-router-dom';
 
 const Dashboard = () => {
     const isLoading = useLoading()

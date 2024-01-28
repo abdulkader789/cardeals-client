@@ -19,7 +19,7 @@ import Main from "./Layout/Main";
 import Dashboard from "./Layout/Dashboard";
 import Overview from "./components/AdminDashboard/Overview";
 import CategorySection from "./components/AdminDashboard/Category/CategorySection";
-import CategoryList from "./components/AdminDashboard/Category/CategoryList";
+import CategoryDetails from "./components/AdminDashboard/Category/CategoryDetails";
 import { SidebarProvider } from "./context/SidebarContext";
 import ProductSection from "./components/AdminDashboard/Product/ProductSection";
 import CreateProduct from "./components/AdminDashboard/Product/CreateProduct";
@@ -34,6 +34,10 @@ import SearchProduct from "./pages/SearchProduct";
 import ProductDetails from "./components/ProductDetails";
 import OrderPage from "./pages/OrderPage";
 import { CartProvider } from "./context/CartContext";
+import UserSection from "./components/AdminDashboard/User/UserSection";
+import { UserProvider } from "./context/UserContext";
+import UserDetails from "./components/AdminDashboard/User/UserDetails";
+import { OrderProvider } from "./context/OrderContext";
 
 const router = createBrowserRouter([
   {
@@ -106,8 +110,8 @@ const router = createBrowserRouter([
             element: <CategorySection />
           },
           {
-            path: "categorylist", // This will render when the "/dashboard/test" route is accessed
-            element: <CategoryList />
+            path: "categorydetails/:slug", // This will render when the "/dashboard/test" route is accessed
+            element: <CategoryDetails />
           },
           {
             path: "createcategory", // This will render when the "/dashboard/test" route is accessed
@@ -120,6 +124,14 @@ const router = createBrowserRouter([
           {
             path: "createproduct", // This will render when the "/dashboard/test" route is accessed
             element: <CreateProduct />
+          },
+          {
+            path: "user",
+            element: <UserSection />
+          },
+          {
+            path: "userdetails/:id",
+            element: <UserDetails />
           }
         ]
 
@@ -141,20 +153,24 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <CartProvider>
-      <SearchProvider>
-        <CategoryProvider>
-          <ProductProvider>
+    <OrderProvider>
+      <UserProvider>
+        <CartProvider>
+          <SearchProvider>
+            <CategoryProvider>
+              <ProductProvider>
 
-            <AuthProvider>
-              <SidebarProvider>
-                <RouterProvider router={router} />
-              </SidebarProvider>
-            </AuthProvider>
+                <AuthProvider>
+                  <SidebarProvider>
+                    <RouterProvider router={router} />
+                  </SidebarProvider>
+                </AuthProvider>
 
-          </ProductProvider>
-        </CategoryProvider>
-      </SearchProvider>
-    </CartProvider>
+              </ProductProvider>
+            </CategoryProvider>
+          </SearchProvider>
+        </CartProvider>
+      </UserProvider>
+    </OrderProvider>
   </React.StrictMode>
 );

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import CategoryItem from "./CategoryItem";
 import { useAuth } from "../../../context/AuthContext";
 import CreateModal from "./CreateModal";
+import { Link } from "react-router-dom";
 
 
 const CategorySection = () => {
@@ -150,15 +151,15 @@ const CategorySection = () => {
 
 
 
-                    <button onClick={toggleCreateModal} className="inline-flex px-5 py-3 text-white bg-red-400 hover:bg-red-700 focus:bg-purple-700 rounded-md ml-6 mb-3">
-                        <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="flex-shrink-0 h-6 w-6 text-white -ml-1 mr-2">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-                        </svg>
-                        Create Category
-                    </button>
-                    {
-                        isCreateModalOpen ? <CreateModal createCategory={createCategory} setCreateModalOpen={setCreateModalOpen} /> : null
-                    }
+                    <Link to='/dashboard/createcategory'>
+                        <button className="inline-flex px-5 py-3 text-white bg-red-400 hover:bg-red-700 focus:bg-purple-700 rounded-md ml-6 mb-3">
+                            <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="flex-shrink-0 h-6 w-6 text-white -ml-1 mr-2">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                            </svg>
+                            Create Category
+                        </button>
+                    </Link>
+
 
                 </div>
             </div>
@@ -240,6 +241,10 @@ const CategorySection = () => {
                                         <th
                                             className="px-5 py-3 border-b-2 border-gray-200  text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
                                             Status
+                                        </th>
+                                        <th
+                                            className="px-5 py-3 border-b-2 border-gray-200  text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                            Full Details
                                         </th>
                                         <th
                                             className="px-5 py-3 border-b-2 border-gray-200  text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
