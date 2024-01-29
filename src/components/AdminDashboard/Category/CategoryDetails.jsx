@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
 const CategoryDetails = () => {
-    const { slug } = useParams(); // Extract slug from URL params
+    const { id } = useParams(); // Extract id from URL params
+    console.log(id)
     const [category, setCategory] = useState(null);
     const [categoryProducts, setCategoryProducts] = useState([]);
     const formatDate = (timestamp) => {
@@ -22,7 +23,7 @@ const CategoryDetails = () => {
     useEffect(() => {
         async function fetchCategory() {
             try {
-                const response = await fetch(`/api/category/get-single-category/${slug}`);
+                const response = await fetch(`/api/category/get-single-category/${id}`);
                 if (!response.ok) {
                     throw new Error('Failed to fetch category');
                 }
@@ -45,7 +46,7 @@ const CategoryDetails = () => {
         }
 
         fetchCategory();
-    }, [slug]);
+    }, [id]);
 
     return (
         <div className="  bg-gray-200 min-h-screen">

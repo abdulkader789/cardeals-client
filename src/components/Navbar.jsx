@@ -6,6 +6,13 @@ import { faSearch, faUser, faShoppingCart, faBars, faTimes } from '@fortawesome/
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext';
 const NavLinks = ({ visibility, homeNav }) => {
+    const { authData, logout } = useAuth(); // Get authData and logout function from AuthContext
+    const isLoggedIn = authData && authData.user;
+
+    // Function to handle logout
+    const handleLogout = () => {
+        logout(); // Call logout function from AuthContext
+    };
 
     return (
         <div className='ml-10'>
@@ -14,7 +21,13 @@ const NavLinks = ({ visibility, homeNav }) => {
                 <li><Link to='/shop' className="uppercase nav-text">shop</Link></li>
                 <li><Link to='/about' className="uppercase nav-text">about</Link></li>
                 <li><Link to='/contact' className="uppercase nav-text">contact</Link></li>
-                <li><Link to='/login' className="uppercase nav-text">login</Link></li>
+                {isLoggedIn ? (
+                    // If user is logged in, display logout button
+                    <li><button onClick={handleLogout} className="uppercase nav-text">logout</button></li>
+                ) : (
+                    // If user is not logged in, display login link
+                    <li><Link to='/login' className="uppercase nav-text">login</Link></li>
+                )}
             </ul>
         </div>
     )

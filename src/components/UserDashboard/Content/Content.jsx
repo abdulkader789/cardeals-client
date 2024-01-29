@@ -1,9 +1,10 @@
-import React from 'react';
 
 const Content = () => {
+
+
     return (
-        <div>
-            content
+        <div className='p-20'>
+
         </div>
     );
 };

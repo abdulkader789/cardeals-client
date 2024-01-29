@@ -32,13 +32,14 @@ export const CategoryProvider = ({ children }) => {
     // Effect to fetch categories from API on component mount
     useEffect(() => {
         fetchCategories();
+
     }, []); // Run only on component mount
 
     // Value to be provided by the context
     const value = {
         categoryData,
         setCategoryData,
-        fetchCategories
+        fetchCategories,
     };
 
     return <CategoryContext.Provider value={value}>{children}</CategoryContext.Provider>;

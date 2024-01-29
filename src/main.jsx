@@ -39,6 +39,9 @@ import { UserProvider } from "./context/UserContext";
 import UserDetails from "./components/AdminDashboard/User/UserDetails";
 import { OrderProvider } from "./context/OrderContext";
 import UserList from "./components/AdminDashboard/User/UserList";
+import OrderList from "./components/AdminDashboard/Order/OrderList";
+import OrderDetails from "./components/AdminDashboard/Order/OrderDetails";
+import UpdateCategory from "./components/AdminDashboard/Category/UpdateCategory";
 
 const router = createBrowserRouter([
   {
@@ -111,12 +114,16 @@ const router = createBrowserRouter([
             element: <CategorySection />
           },
           {
-            path: "categorydetails/:slug", // This will render when the "/dashboard/test" route is accessed
+            path: "categorydetails/:id", // This will render when the "/dashboard/test" route is accessed
             element: <CategoryDetails />
           },
           {
             path: "createcategory", // This will render when the "/dashboard/test" route is accessed
             element: <CreateCategory />
+          },
+          {
+            path: "updatecategory/:id", // This will render when the "/dashboard/test" route is accessed
+            element: <UpdateCategory />
           },
           {
             path: "product", // This will render when the "/dashboard/test" route is accessed
@@ -137,7 +144,16 @@ const router = createBrowserRouter([
           {
             path: "userlist",
             element: <UserList />
-          }
+          },
+          {
+            path: "orders",
+            element: <OrderList />
+          },
+          {
+            path: "orderdetails/:id",
+            element: <OrderDetails />
+          },
+
         ]
 
       },

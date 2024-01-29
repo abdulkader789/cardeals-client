@@ -18,6 +18,7 @@ export const OrderProvider = ({ children }) => {
                 }
                 const data = await response.json();
                 setOrdersData(data);
+                console.log('context orders', data)
             } catch (error) {
                 console.error('Error:', error.message);
             }

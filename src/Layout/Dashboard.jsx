@@ -1,6 +1,6 @@
 
 
-import UserDashboard from '../pages/UserDashboard';
+
 import Sidebar from '../components/AdminDashboard/Nav/Sidebar';
 import TopNav from '../components/AdminDashboard/Nav/TopNav';
 import { useAuth } from '../context/AuthContext';
@@ -8,6 +8,7 @@ import useLoading from '../components/Loader/UseLoading';
 import LoadingBar from '../components/Loader/LoadingBar';
 import { useSidebar } from '../context/SidebarContext';
 import { Outlet } from 'react-router-dom';
+import UserDashboard from './UserDashboard';
 
 const Dashboard = () => {
     const isLoading = useLoading()

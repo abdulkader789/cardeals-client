@@ -45,9 +45,12 @@ const Sidebar = () => {
                             <div>Dashboard </div>
                         </Link>
                     </li>
+
+                    {/* Section Devider  */}
                     <div className="section border-b pt-4 mb-4 text-xs text-gray-600 border-gray-700 pb-1 pl-3">
-                        Work
+                        Managment
                     </div>
+
                     <li className="text-sm text-gray-500 ">
                         <a href="#"
                             className="flex items-center w-full py-1 px-2 rounded relative hover:text-white hover:bg-gray-700 ">
@@ -57,7 +60,7 @@ const Sidebar = () => {
                                         d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
                                 </svg>
                             </div>
-                            <div>Tasks </div>
+                            <div>Profile </div>
                         </a>
                     </li>
                     <li className="text-sm text-gray-500 ">
@@ -69,14 +72,11 @@ const Sidebar = () => {
                                         d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                                 </svg>
                             </div>
-                            <div>Errors & Bugs </div>
+                            <div><Link >Update Profile</Link></div>
                         </a>
                     </li>
 
-                    {/* Section Devider  */}
-                    <div className="section border-b pt-4 mb-4 text-xs text-gray-600 border-gray-700 pb-1 pl-3">
-                        Managment
-                    </div>
+
 
 
                 </ul>

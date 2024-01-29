@@ -11,8 +11,8 @@ const Overview = () => {
         process: '#5be7a9',
         income: '#44c662'
     }
-    const { usersData } = useUsers()
     const { ordersData } = useOrders()
+    const { usersData } = useUsers()
     const { productData } = useProduct()
     // Empty dependency array to ensure the effect runs only once
     const pendingOrders = ordersData.filter(order => order.status === 'Pending');
@@ -75,14 +75,14 @@ const Overview = () => {
                             </svg>
                         </div>
                         <div>
-                            <span className="block text-2xl text-white font-bold">{pendingOrders.length}</span>
-                            <span className="block text-white">Order Pending</span>
+                            <span className="block text-2xl text-white font-bold">{ordersData && ordersData.length}</span>
+                            <span className="block text-white">Total<br></br>Orders</span>
                         </div>
                     </div>
                 </Link>
 
 
-                <div style={{ backgroundColor: background.process }} className="flex items-center p-8  shadow rounded-sm">
+                {/* <div style={{ backgroundColor: background.process }} className="flex items-center p-8  shadow rounded-sm">
                     <div className="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-red-600 bg-red-100 rounded-full mr-6">
                         <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="h-6 w-6">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6" />
@@ -93,7 +93,7 @@ const Overview = () => {
 
                         <span className="block text-white">Order Confirmed</span>
                     </div>
-                </div>
+                </div> */}
 
 
                 <div style={{ backgroundColor: background.income }} className="flex items-center p-8  shadow rounded-sm">

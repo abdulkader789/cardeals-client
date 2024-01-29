@@ -1,7 +1,7 @@
 import TableBody from "./TableBody";
 
 
-const TableContainer = ({ tableHead, tableData }) => {
+const TableContainer = ({ tableHead, tableData, updateRoute, deleteRoute, infoRoute, onDelete }) => {
     return (
         <div className=" px-4 sm:px-8 py-4 overflow-x-auto">
             <div className="inline-block min-w-full shadow rounded-lg overflow-hidden">
@@ -33,7 +33,7 @@ const TableContainer = ({ tableHead, tableData }) => {
                     </thead>
 
                     {
-                        tableData?.map((item) => <TableBody key={item._id} item={item} />)
+                        tableData?.map((item) => <TableBody updateRoute={updateRoute} infoRoute={infoRoute} onDelete={onDelete} deleteRoute={deleteRoute} key={item._id} item={item} />)
                     }
 
 
