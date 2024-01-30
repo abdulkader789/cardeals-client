@@ -6,19 +6,11 @@ import { useUsers } from '../../../context/UserContext';
 import { useAuth } from '../../../context/AuthContext';
 
 
-
-
-
 const CreateUser = () => {
-
     const { id } = useParams();
-
     const { authData } = useAuth();
-    const { usersData } = useUsers();
+    const { usersData, fetchUsers } = useUsers();
     const navigate = useNavigate();
-
-
-
 
 
     const [UserData, setUserData] = useState({ name: '', email: '', password: '', photo: null, address: '', role: 0 });
@@ -44,6 +36,7 @@ const CreateUser = () => {
                 const data = await response.json();
                 setUserData(data.user);
 
+
             }
         } catch (error) {
             console.error("Error during User:", error);
@@ -55,17 +48,22 @@ const CreateUser = () => {
         getSingleUser();
     }, [id]);
 
+    const [localImageSelected, setLocalImageSelected] = useState(false); // New state to track local image selection
+    const handleImageChange = (e) => {
+        if (e.target.files && e.target.files[0]) {
+            setUserData({ ...UserData, photo: e.target.files[0] }); // Store the file object
+            setLocalImageSelected(true); // Set localImageSelected to true when an image is selected
+        }
+    };
+
     const handleUpdateUser = async (e) => {
         e.preventDefault();
 
         try {
-
-
-
             const formData = new FormData();
             Object.entries(UserData).forEach(([key, value]) => {
                 if (key === 'photo') {
-                    formData.append('photo', value);
+                    formData.append('photo', value); // Append the file object directly
                 } else if (typeof value === 'boolean') {
                     // Convert boolean to string before appending
                     formData.append(key, value.toString());
@@ -73,7 +71,6 @@ const CreateUser = () => {
                     formData.append(key, value);
                 }
             });
-
 
             const response = await fetch(`/api/auth/update-user/${id}`, {
                 method: 'PUT',
@@ -85,13 +82,13 @@ const CreateUser = () => {
 
             if (!response.ok) {
                 const errorData = await response.json();
-
                 throw new Error(errorData.error || 'Failed to create User');
-
             }
 
             const result = await response.json();
-            console.log('User created successfully:', result.User);
+            console.log('User updated successfully:', result.User);
+            fetchUsers();
+            navigate('/dashboard/user');
 
         } catch (error) {
             console.error(error.message);
@@ -222,7 +219,7 @@ const CreateUser = () => {
                                         type="file"
                                         name="photo"
 
-                                        onChange={(e) => setUserData({ ...UserData, photo: e.target.files[0] })}
+                                        onChange={handleImageChange}
                                     />
 
                                     Add Cover Image
@@ -236,23 +233,17 @@ const CreateUser = () => {
                                 <legend className="uppercase tracking-wide text-sm">Selected Image</legend>
                             </div>
 
-                            {UserData.photo ? (
-                                <div className="md:flex-1 px-3 text-center">
-                                    <img
-
-                                        src={UserData.photo instanceof File ? URL.createObjectURL(UserData.photo) : UserData.photo}
-
-
-                                        alt="Selected Cover Image"
-                                        className="max-w-full h-auto"
-                                    />
-                                </div>
+                            {localImageSelected ? (
+                                <img
+                                    src={UserData.photo ? URL.createObjectURL(UserData.photo) : ''}
+                                    alt="Selected Cover Image"
+                                    className="max-w-full h-auto"
+                                />
                             ) : (
                                 <div className="md:flex-1 px-3 text-center border-dashed border-2 border-gray-300 py-10">
                                     <p className="text-gray-500">No image selected</p>
-                                    {/* Placeholder image */}
                                     <img
-                                        src="https://t4.ftcdn.net/jpg/03/16/15/47/360_F_316154790_pnHGQkERUumMbzAjkgQuRvDgzjAHkFaQ.jpg"
+                                        src={`/api/auth/get-user-photo/${id}`}
                                         alt="No Image"
                                         className="max-w-full h-24 mx-auto mt-4"
                                     />

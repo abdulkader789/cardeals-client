@@ -2,21 +2,20 @@ import { Navigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import UnauthorizedUser from "./UnauthorizedUser";
 
-const PrivateRoute = ({ children }) => {
+const AdminPrivateRoute = ({ children }) => {
     const { authData, } = useAuth();
 
 
-    if (authData == null) {
-        return <UnauthorizedUser />;
-    }
-
 
     // If authData and token exist, render the children
-    if (authData && authData.token) {
+    if (authData.user.role == 1) {
         return children;
     }
 
 
+
+    // Redirect to login if authData or token doesn't exist
+    return <Navigate to="/login" replace={true} />;
 };
 
-export default PrivateRoute;
+export default AdminPrivateRoute;

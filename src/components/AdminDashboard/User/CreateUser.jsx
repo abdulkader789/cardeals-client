@@ -1,14 +1,13 @@
 import React, { useState, } from 'react';
+import { useAuth } from '../../../context/AuthContext';
 
 
 const CreateUser = () => {
 
-
+    const { authData } = useAuth()
 
 
     const [UserData, setUserData] = useState({ name: '', email: '', password: '', photo: null, address: '', role: 0 });
-
-
 
 
 
@@ -17,8 +16,6 @@ const CreateUser = () => {
         e.preventDefault();
 
         try {
-
-
 
             const formData = new FormData();
             Object.entries(UserData).forEach(([key, value]) => {
@@ -55,6 +52,8 @@ const CreateUser = () => {
             console.error(error.message);
         }
     };
+
+
 
 
 
@@ -106,7 +105,7 @@ const CreateUser = () => {
                                     name="email"
                                     placeholder="email"
                                     value={UserData.email}
-                                    onChange={(e) => setUserData({ ...UserData, model: e.target.value })}
+                                    onChange={(e) => setUserData({ ...UserData, email: e.target.value })}
                                 />
                             </div>
                         </div>
@@ -139,7 +138,7 @@ const CreateUser = () => {
                                     type="text"
                                     name="phone"
                                     placeholder="phone"
-                                    value={UserData.email}
+                                    value={UserData.phone}
                                     onChange={(e) => setUserData({ ...UserData, phone: e.target.value })}
                                 />
                             </div>

@@ -49,15 +49,6 @@ const ProductBar = () => {
 
                     {/* <!-- Item --> */}
                     <li className="text-sm text-gray-500 ">
-                        <Link to='/dashboard/categorylist'>
-                            <button
-                                className="flex items-center w-full py-1 px-2 rounded relative hover:text-white hover:bg-gray-700">
-                                <div>Product List </div>
-                            </button>
-                        </Link>
-                    </li>
-                    {/* <!-- Item --> */}
-                    <li className="text-sm text-gray-500 ">
                         <Link to='/dashboard/createproduct'>
                             <button
                                 className="flex items-center w-full py-1 px-2 rounded relative hover:text-white hover:bg-gray-700">

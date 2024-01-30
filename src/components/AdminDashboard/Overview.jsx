@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { useOrders } from "../../context/OrderContext";
 import { useProduct } from "../../context/ProductContext";
 import { useCategory } from "../../context/CategoryContext";
-const Overview = () => {
+const AdminOverview = () => {
 
     const { ordersData } = useOrders()
     const { usersData } = useUsers()
@@ -146,4 +146,4 @@ const Overview = () => {
     );
 };
 
-export default Overview;
+export default AdminOverview;

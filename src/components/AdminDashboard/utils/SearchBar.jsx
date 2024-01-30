@@ -3,20 +3,28 @@ import { useState } from "react";
 const SearchBar = ({ data, setFiltered }) => {
     console.log('data from search', data)
     const [searchTerm, setSearchTerm] = useState('');
-    const handleSearchChange = (e) => {
 
+    const handleSearchChange = (e) => {
         const searchTerm = e.target.value.toLowerCase();
         setSearchTerm(searchTerm);
+        if (searchTerm.length === 0) {
+            setFiltered(data); // Set filtered data back to the original data array
+            return; // Exit early since no filtering is needed
+        }
+        if (data) {
+            const filtered = data.filter(item => {
+                // Ensure item and item.name are not undefined
+                if (item && item.name) {
+                    return item.name.toLowerCase().includes(searchTerm);
+                }
+                return false;
+            });
 
-        const filtered = data?.filter(item =>
-            item.name.toLowerCase().includes(searchTerm));
-
-        setFiltered(filtered);
-
-        console.log('filtered from search ', filtered)
-
-
+            setFiltered(filtered);
+            console.log('filtered from search ', filtered);
+        }
     };
+
 
     return (
         <div className="px-8 flex sm:flex-row flex-col">

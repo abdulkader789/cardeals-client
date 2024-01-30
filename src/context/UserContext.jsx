@@ -12,25 +12,27 @@ export const useUsers = () => {
 export const UserProvider = ({ children }) => {
     const [usersData, setUsersData] = useState([]);
 
-    useEffect(() => {
-        async function fetchUsers() {
-            try {
-                const response = await fetch('/api/auth/get-all-users'); // Adjust the URL as per your server configuration
-                if (!response.ok) {
-                    throw new Error('Failed to fetch users');
-                }
-                const data = await response.json();
-                setUsersData(data);
-            } catch (error) {
-                console.error('Error:', error.message);
-            }
-        }
 
+    async function fetchUsers() {
+        try {
+            const response = await fetch('/api/auth/get-all-users'); // Adjust the URL as per your server configuration
+            if (!response.ok) {
+                throw new Error('Failed to fetch users');
+            }
+            const data = await response.json();
+            setUsersData(data);
+        } catch (error) {
+            console.error('Error:', error.message);
+        }
+    }
+
+
+    useEffect(() => {
         fetchUsers();
     }, []);
 
     return (
-        <UserContext.Provider value={{ usersData, setUsersData }}> {/* Wrap values in an object */}
+        <UserContext.Provider value={{ usersData, setUsersData, fetchUsers }}> {/* Wrap values in an object */}
             {children}
         </UserContext.Provider>
     );

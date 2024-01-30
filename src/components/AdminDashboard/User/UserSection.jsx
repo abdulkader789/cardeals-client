@@ -22,8 +22,8 @@ const UserSection = () => {
             <SectionHeader name="User" redirect="/dashboard/createUser" />
             <SearchBar data={usersData} setFiltered={setFilteredUsers} />
             {
-                filteredUsers.length > 0 ? <TableContainer infoRoute='userdetails' onDelete={handleDelete} tableData={filteredUsers} updateRoute="updateUser" deleteRoute='auth/delete-user' />
-                    : <TableContainer infoRoute='userdetails' onDelete={handleDelete} tableData={usersData} updateRoute="updateuser" deleteRoute='auth/delete-user' />
+                filteredUsers.length > 0 ? <TableContainer photoRoute='auth/get-user-photo' infoRoute='userdetails' onDelete={handleDelete} tableData={filteredUsers} updateRoute="updateUser" deleteRoute='auth/delete-user' />
+                    : <TableContainer infoRoute='userdetails' onDelete={handleDelete} tableData={usersData} photoRoute='auth/get-user-photo' updateRoute="updateuser" deleteRoute='auth/delete-user' />
             }
 
         </div>

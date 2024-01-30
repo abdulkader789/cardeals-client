@@ -28,16 +28,16 @@ const UserRow = ({ user }) => {
                 <td className="px-5 py-5 border-b border-gray-200  text-sm">
                     <p className="text-gray-900 whitespace-no-wrap">{user.createdAt}</p>
                 </td>
+                <Link to={`/dashboard/userdetails/${user._id}`}>
+                    <td className="px-5 py-5 border-b border-gray-200  text-sm">
 
-                <td className="px-5 py-5 border-b border-gray-200  text-sm">
 
-                    <Link to={`/dashboard/userdetails/${user._id}`}>
                         <button className="text-blue-500 hover:text-blue-700">
                             <FontAwesomeIcon icon={faInfoCircle} />
                         </button>
-                    </Link>
-                </td>
 
+                    </td>
+                </Link>
                 <td className="px-5 py-5 border-b border-gray-200  text-sm space-x-8">
                     <button className="text-blue-500 hover:text-blue-700">
                         <FontAwesomeIcon icon={faEdit} />

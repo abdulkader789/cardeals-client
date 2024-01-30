@@ -21,6 +21,7 @@ export const ProductProvider = ({ children }) => {
             if (response.ok) {
                 const data = await response.json();
                 setProductData(data.products);
+                console.log('Product data: ', productData)
 
             } else {
                 throw new Error('Failed to fetch products');

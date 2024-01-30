@@ -17,7 +17,7 @@ import { AuthProvider } from "./context/AuthContext";
 import PrivateRoute from "./components/PrivateRoute";
 import Main from "./Layout/Main";
 import Dashboard from "./Layout/Dashboard";
-import Overview from "./components/AdminDashboard/Overview";
+
 import CategorySection from "./components/AdminDashboard/Category/CategorySection";
 import CategoryDetails from "./components/AdminDashboard/Category/CategoryDetails";
 import { SidebarProvider } from "./context/SidebarContext";
@@ -31,7 +31,7 @@ import { ProductProvider } from "./context/ProductContext";
 
 import { SearchProvider } from "./context/SearchContext";
 import SearchProduct from "./pages/SearchProduct";
-import ProductDetails from "./components/ProductDetails";
+import ProductDetails from "./components/AdminDashboard/Product/ProductDetails";
 import OrderPage from "./pages/OrderPage";
 import { CartProvider } from "./context/CartContext";
 import UserSection from "./components/AdminDashboard/User/UserSection";
@@ -44,6 +44,10 @@ import OrderDetails from "./components/AdminDashboard/Order/OrderDetails";
 import UpdateCategory from "./components/AdminDashboard/Category/UpdateCategory";
 import UpdateUser from "./components/AdminDashboard/User/UpdateUser";
 import CreateUser from "./components/AdminDashboard/User/CreateUser";
+import AdminPrivateRoute from "./components/AdminPrivateRoute";
+
+import UpdateProduct from "./components/AdminDashboard/Product/UpdateProduct";
+import AdminOverview from "./components/AdminDashboard/Overview";
 
 const router = createBrowserRouter([
   {
@@ -107,61 +111,71 @@ const router = createBrowserRouter([
         children: [
 
           {
-            path: "",
-            element: <Overview />
+            path: "overview",
+            element: <AdminPrivateRoute><AdminOverview /></AdminPrivateRoute>,
 
           },
+
           {
             path: "category", // This will render when the "/dashboard/test" route is accessed
-            element: <CategorySection />
+            element: <AdminPrivateRoute><CategorySection /></AdminPrivateRoute>
           },
           {
             path: "categorydetails/:id", // This will render when the "/dashboard/test" route is accessed
-            element: <CategoryDetails />
+            element: <AdminPrivateRoute><CategoryDetails /></AdminPrivateRoute>
           },
           {
             path: "createcategory", // This will render when the "/dashboard/test" route is accessed
-            element: <CreateCategory />
+            element: <AdminPrivateRoute><CreateCategory /></AdminPrivateRoute>
           },
           {
             path: "updatecategory/:id", // This will render when the "/dashboard/test" route is accessed
-            element: <UpdateCategory />
+            element: <AdminPrivateRoute><UpdateCategory /></AdminPrivateRoute>
           },
           {
             path: "product", // This will render when the "/dashboard/test" route is accessed
-            element: <ProductSection />
+            element: <AdminPrivateRoute><ProductSection /></AdminPrivateRoute>
           },
           {
             path: "createproduct", // This will render when the "/dashboard/test" route is accessed
-            element: <CreateProduct />
+            element: <AdminPrivateRoute><CreateProduct /></AdminPrivateRoute>
           },
           {
+            path: "productdetails/:id", // This will render when the "/dashboard/test" route is accessed
+            element: <AdminPrivateRoute><ProductDetails /></AdminPrivateRoute>
+          },
+          {
+            path: "updateproduct/:id", // This will render when the "/dashboard/test" route is accessed
+            element: <AdminPrivateRoute><UpdateProduct /></AdminPrivateRoute>
+          },
+
+          {
             path: "user",
-            element: <UserSection />
+            element: <AdminPrivateRoute><UserSection /></AdminPrivateRoute>
           },
           {
             path: "userdetails/:id",
-            element: <UserDetails />
+            element: <AdminPrivateRoute><UserDetails /></AdminPrivateRoute>
           },
           {
             path: "userlist",
-            element: <UserList />
+            element: <AdminPrivateRoute><UserList /></AdminPrivateRoute>
           },
           {
             path: 'updateuser/:id',
-            element: <UpdateUser />
+            element: <AdminPrivateRoute><UpdateUser /></AdminPrivateRoute>
           },
           {
             path: 'createuser',
-            element: <CreateUser />
+            element: <AdminPrivateRoute><CreateUser /></AdminPrivateRoute>
           },
           {
             path: "orders",
-            element: <OrderList />
+            element: <AdminPrivateRoute><OrderList /></AdminPrivateRoute>
           },
           {
             path: "orderdetails/:id",
-            element: <OrderDetails />
+            element: <AdminPrivateRoute><OrderDetails /></AdminPrivateRoute>
           },
 
         ]

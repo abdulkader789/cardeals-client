@@ -38,7 +38,7 @@ const Sidebar = () => {
             <nav className="px-4 pt-4  scroller overflow-y-scroll max-h-[calc(100vh-64px)]" >
                 <ul className="flex flex-col space-y-2">
                     <li className="text-sm text-gray-500 ">
-                        <Link to='/dashboard'
+                        <Link to='/dashboard/overview'
                             className="flex items-center w-full py-1 px-2 rounded relative hover:text-white hover:bg-gray-700 ">
                             <div className="pr-2">
                                 <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">

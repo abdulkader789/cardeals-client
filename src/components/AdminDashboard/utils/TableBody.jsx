@@ -4,7 +4,7 @@ import { faEdit, faTrash, faInfo } from '@fortawesome/free-solid-svg-icons';
 import { useAuth } from '../../../context/AuthContext';
 import { Link } from 'react-router-dom';
 
-const TableBody = ({ item, detailsRoute, infoRoute, editRoute, deleteRoute, onDelete, updateRoute }) => {
+const TableBody = ({ item, detailsRoute, photoRoute, infoRoute, editRoute, deleteRoute, onDelete, updateRoute }) => {
     const { authData } = useAuth()
     const handleDelete = () => {
         fetch(`/api/${deleteRoute}/${item._id}`, {
@@ -39,7 +39,7 @@ const TableBody = ({ item, detailsRoute, infoRoute, editRoute, deleteRoute, onDe
                     <p className="text-gray-900 whitespace-no-wrap">{item.name}</p>
                 </td>
                 <td className="px-5 py-5 border-b border-gray-200  text-sm">
-                    <img src={item.url} alt="Item" />
+                    <img className='h-10 w-10' src={`/api/${photoRoute}/${item._id}`} alt="Photo" />
                 </td>
                 <td className="px-5 py-5 border-b border-gray-200  text-sm">
                     <button className="text-white flex  justify-center items-center bg-blue-700 rounded-full h-5 w-5">
