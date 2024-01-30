@@ -42,6 +42,7 @@ import UserList from "./components/AdminDashboard/User/UserList";
 import OrderList from "./components/AdminDashboard/Order/OrderList";
 import OrderDetails from "./components/AdminDashboard/Order/OrderDetails";
 import UpdateCategory from "./components/AdminDashboard/Category/UpdateCategory";
+import UpdateUser from "./components/AdminDashboard/User/UpdateUser";
 
 const router = createBrowserRouter([
   {
@@ -144,6 +145,10 @@ const router = createBrowserRouter([
           {
             path: "userlist",
             element: <UserList />
+          },
+          {
+            path: 'updateuser/:id',
+            element: <UpdateUser />
           },
           {
             path: "orders",

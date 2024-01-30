@@ -1,13 +1,10 @@
-import { useEffect, useState } from "react";
-import CategoryItem from "./CategoryItem";
-import { useAuth } from "../../../context/AuthContext";
-import CreateModal from "./CreateModal";
-import { Link } from "react-router-dom";
+
 import SectionHeader from "../utils/SectionHeader";
 import SearchBar from "../utils/SearchBar";
 
 import TableContainer from "../utils/TableContainer";
 import { useCategory } from "../../../context/CategoryContext";
+import { useState } from "react";
 
 
 const CategorySection = () => {

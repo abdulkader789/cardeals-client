@@ -1,21 +1,44 @@
-import React, { useState } from 'react';
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import { useAuth } from '../context/AuthContext';
-
-import { useParams } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const OrderPage = () => {
     const { id } = useParams()
     const { authData } = useAuth();
 
     const [formData, setFormData] = useState({
-        productId: id,
-
+        product: null, // Initialize productDetails as null
         name: '',
         email: '',
         phone: '',
         message: '',
         appointmentDateTime: ''
     });
+
+    useEffect(() => {
+        // Fetch product details based on the product ID
+        const fetchProduct = async () => {
+            try {
+                const response = await fetch(`/api/product/get-single-product/${id}`);
+                if (!response.ok) {
+                    throw new Error('Failed to fetch product');
+                }
+                const productData = await response.json();
+                // Set the fetched product data in the formData state
+                setFormData(prevFormData => ({
+                    ...prevFormData,
+                    product: productData.product,// Set productDetails to the fetched product data
+                    userId: authData?.user._id
+                }));
+            } catch (error) {
+                console.error('Error fetching product:', error);
+            }
+        };
+
+        fetchProduct();
+    }, [id]);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -31,10 +54,10 @@ const OrderPage = () => {
         }
     };
 
-
-    const handleSubmit = async () => {
+    const handleSubmit = async (e) => {
+        e.preventDefault()
         try {
-            const response = await fetch('/api/user/order', {
+            const response = await fetch('/api/order/create-order', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -48,6 +71,7 @@ const OrderPage = () => {
             }
 
             // Handle success response if needed
+            alert('Order created successfully');
             console.log('Order created successfully');
         } catch (error) {
             console.error('Error creating order:', error);
@@ -58,7 +82,7 @@ const OrderPage = () => {
     return (
         <div className="max-w-md mx-auto p-6 bg-white rounded-md shadow-md">
             <h2 className="text-xl font-semibold mb-4">Create Order</h2>
-            <form >
+            <form>
 
                 <div className="mb-4">
                     <label className="block mb-1">Name:</label>
@@ -111,6 +135,7 @@ const OrderPage = () => {
                 </div>
                 <button onClick={handleSubmit} className="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600">Create Order</button>
             </form>
+
         </div>
     );
 };
