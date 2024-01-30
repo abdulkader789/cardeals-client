@@ -5,7 +5,6 @@ import UnauthorizedUser from "./UnauthorizedUser";
 const PrivateRoute = ({ children }) => {
     const { authData, } = useAuth();
 
-
     if (authData == null) {
         return <UnauthorizedUser />;
     }

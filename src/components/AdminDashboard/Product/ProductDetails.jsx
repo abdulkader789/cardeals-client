@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 const UserDetails = () => {
     const { id } = useParams();
@@ -30,19 +30,21 @@ const UserDetails = () => {
                 < section className="container mx-auto p-10 md:p-20 antialiased " >
                     <article
                         className=" flex flex-wrap md:flex-nowrap shadow-lg mx-auto max-w-3xl group cursor-pointer transform duration-500 hover:-translate-y-1">
-                        <img className="w-full max-h-[400px] object-cover md:w-52" src={`/api/product/get-product-photo/${id}`} alt="" />
-                        <div className="">
+                        <img className="w-full max-h-[400px] object-fit md:w-52" src={`/api/product/get-product-photo/${id}`} alt="" />
+                        <div className="p-10 ">
                             <div className="p-5 pb-10">
                                 <h1 className="text-2xl font-semibold text-gray-800 mt-4">
                                     Name: {productData.name}
                                 </h1>
 
                             </div>
-                            <div>
-                                <p className="text-gray-600">Description: {productData.description}</p>
-                                <p className="text-gray-600">Price: ${productData.price}</p>
-                                <p className="text-gray-600">Category: {productData.category}</p>
+                            <div className="p-5">
+                                <p className="text-gray-600 mb-5">Description: {productData.description}</p>
+                                <p className="text-gray-600 mb-5">Price: ${productData.price}</p>
 
+                                <Link to={`/order/${id}`}>
+                                    <button className='bg-blue-500 px-5 py-2 text-white'>Buy This Car</button>
+                                </Link>
                             </div>
 
                         </div>

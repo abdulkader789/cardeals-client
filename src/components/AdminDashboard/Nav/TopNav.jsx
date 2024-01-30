@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useSidebar } from "../../../context/SidebarContext";
 import { useState } from "react";
+import { useAuth } from "../../../context/AuthContext";
 
 const TopNav = () => {
     const { toggleSidebar, isMobileOpen, toggleMobilebar } = useSidebar()
@@ -8,6 +9,7 @@ const TopNav = () => {
     const toggleProfile = () => {
         setProfileClicked(!isProfileClicked)
     }
+    const { authData, logout } = useAuth()
     return (
 
 
@@ -123,13 +125,13 @@ const TopNav = () => {
                                         id="user-menu-button" aria-expanded="false" aria-haspopup="true">
                                         <span className="sr-only">Open user menu</span>
                                         <img className="h-8 w-8 rounded-full bg-white"
-                                            src="https://static.thenounproject.com/png/1146337-200.png"
+                                            src={`/api/auth/get-user-photo/${authData?.user._id}`}
                                             alt="" />
                                     </div>
 
                                     <div className="flex flex-col ml-4">
                                         <span></span>
-                                        <span>Admin Role</span>
+                                        <span>{authData?.user?.email}</span>
                                     </div>
                                 </div>
 
@@ -141,12 +143,11 @@ const TopNav = () => {
                                     <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                                         role="menuitem" tabIndex="-1" id="user-menu-item-0">My Profile</a>
 
-                                    <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                                        role="menuitem" tabIndex="-1" id="user-menu-item-1">Projects</a>
 
-                                    <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                                        role="menuitem" tabIndex="-1" id="user-menu-item-1">Sign
-                                        out</a>
+
+                                    <button onClick={logout} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                                        role="menuitem" tabIndex="-1" id="user-menu-item-1">Log
+                                        out</button>
                                 </div>
                             </div>
 

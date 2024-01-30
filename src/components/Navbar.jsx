@@ -51,7 +51,7 @@ const NavIcons = ({ visibility }) => {
             </Link>
             <Link to='/cart' className='icon-link relative'>
                 <FontAwesomeIcon icon={faShoppingCart} className="cursor-pointer nav-icon" />
-                <span className='cart-nav bg-red-500 absolute -top-1 left-6 text-white'>5</span>
+
             </Link>
 
         </div>

@@ -17,7 +17,12 @@ const Dashboard = () => {
 
 
     if (authData?.user.role == 0) {
-        return <UserDashboard />
+        return (
+            <>
+                <Navigate to='/dashboard/useroverview' />
+                <UserDashboard />
+            </>
+        )
     }
     if (authData?.user.role == 1) {
         return (

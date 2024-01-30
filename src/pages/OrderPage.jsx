@@ -80,62 +80,71 @@ const OrderPage = () => {
     };
 
     return (
-        <div className="max-w-md mx-auto p-6 bg-white rounded-md shadow-md">
+        <div className=" p-6 bg-white rounded-md shadow-md">
             <h2 className="text-xl font-semibold mb-4">Create Order</h2>
-            <form>
 
-                <div className="mb-4">
-                    <label className="block mb-1">Name:</label>
-                    <input
-                        type="text"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleChange}
-                        className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
-                    />
-                </div>
-                <div className="mb-4">
-                    <label className="block mb-1">Email:</label>
-                    <input
-                        type="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
-                    />
-                </div>
-                <div className="mb-4">
-                    <label className="block mb-1">Phone:</label>
-                    <input
-                        type="tel"
-                        name="phone"
-                        value={formData.phone}
-                        onChange={handleChange}
-                        className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
-                    />
-                </div>
-                <div className="mb-4">
-                    <label className="block mb-1">Message:</label>
-                    <textarea
-                        name="message"
-                        value={formData.message}
-                        onChange={handleChange}
-                        className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
-                    />
-                </div>
-                <div className="mb-4">
-                    <label className="block mb-1">Appointment Date Time:</label>
-                    <input
-                        type="datetime-local"
-                        name="appointmentDateTime"
-                        value={formData.appointmentDateTime}
-                        onChange={handleChange}
-                        className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
-                    />
-                </div>
-                <button onClick={handleSubmit} className="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600">Create Order</button>
-            </form>
+            <div className="h-full flex flex-row justify-between items-center">
+                < section className=" " >
+                    <article
+                        className=" flex flex-wrap md:flex-nowrap shadow-lg mx-auto max-w-3xl group cursor-pointer transform duration-500 hover:-translate-y-1">
+                        <img className="w-full h--60 md:w-52" src={`/api/product/get-product-photo/${id}`} alt="" />
 
+                    </article>
+                </section >
+                <form className="w-1/2">
+
+                    <div className="mb-4">
+                        <label className="block mb-1">Name:</label>
+                        <input
+                            type="text"
+                            name="name"
+                            value={formData.name}
+                            onChange={handleChange}
+                            className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
+                        />
+                    </div>
+                    <div className="mb-4">
+                        <label className="block mb-1">Email:</label>
+                        <input
+                            type="email"
+                            name="email"
+                            value={formData.email}
+                            onChange={handleChange}
+                            className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
+                        />
+                    </div>
+                    <div className="mb-4">
+                        <label className="block mb-1">Phone:</label>
+                        <input
+                            type="tel"
+                            name="phone"
+                            value={formData.phone}
+                            onChange={handleChange}
+                            className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
+                        />
+                    </div>
+                    <div className="mb-4">
+                        <label className="block mb-1">Message:</label>
+                        <textarea
+                            name="message"
+                            value={formData.message}
+                            onChange={handleChange}
+                            className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
+                        />
+                    </div>
+                    <div className="mb-4">
+                        <label className="block mb-1">Appointment Date Time:</label>
+                        <input
+                            type="datetime-local"
+                            name="appointmentDateTime"
+                            value={formData.appointmentDateTime}
+                            onChange={handleChange}
+                            className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
+                        />
+                    </div>
+                    <button onClick={handleSubmit} className="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600">Create Order</button>
+                </form>
+            </div>
         </div>
     );
 };

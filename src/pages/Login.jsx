@@ -69,6 +69,7 @@ const Login = () => {
         } catch (error) {
             console.error("Error during login:", error);
             // Handle errors, e.g., show an error message to the user
+            navigate('/login')
             setError("Invalid email or password");
         }
     };

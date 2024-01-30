@@ -22,6 +22,7 @@ const ProductCard = ({ product }) => {
                     <div>
                         <p className="text-md  inline-block">Price ${product.price}</p>
                     </div>
+
                 </div>
 
             </Link>

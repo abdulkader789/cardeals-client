@@ -33,23 +33,12 @@ const OrderDetails = () => {
                 setOrder(data.order);
 
                 // Extract productId and userId from the order
-                const { productId, userId } = data.order;
 
-                // Fetch product details
-                const productResponse = await fetch(`/api/product/get-single-product/${productId}`);
-                if (!productResponse.ok) {
-                    throw new Error('Failed to fetch product');
-                }
-                const productData = await productResponse.json();
-                setProduct(productData.product);
 
-                // Fetch user details
-                const userResponse = await fetch(`/api/auth/get-single-user/${userId}`);
-                if (!userResponse.ok) {
-                    throw new Error('Failed to fetch user');
-                }
-                const userData = await userResponse.json();
-                setUser(userData.user);
+
+                setProduct(data.order.product);
+
+
             } catch (error) {
                 console.error('Error fetching order details:', error);
             }
@@ -62,7 +51,7 @@ const OrderDetails = () => {
 
 
     return (
-        product && user ?
+        product ?
             <div>
 
                 <div className="py-14 px-4 md:px-6 2xl:px-20 2xl:container 2xl:mx-auto">
@@ -139,7 +128,7 @@ const OrderDetails = () => {
                                     <div className="flex justify-center w-full md:justify-start items-center space-x-4 py-8 border-b border-gray-200">
                                         {/* <img src="https://i.ibb.co/5TSg7f6/Rectangle-18.png" alt="avatar" /> */}
                                         <div className="flex justify-start items-start flex-col space-y-2">
-                                            <p className="text-base dark:text-white font-semibold leading-4 text-left text-gray-800">{user.name}</p>
+                                            <p className="text-base dark:text-white font-semibold leading-4 text-left text-gray-800"></p>
 
                                         </div>
                                     </div>
@@ -149,7 +138,7 @@ const OrderDetails = () => {
                                             <path d="M19 5H5C3.89543 5 3 5.89543 3 7V17C3 18.1046 3.89543 19 5 19H19C20.1046 19 21 18.1046 21 17V7C21 5.89543 20.1046 5 19 5Z" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" />
                                             <path d="M3 7L12 13L21 7" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" />
                                         </svg>
-                                        <p className="cursor-pointer text-sm leading-5 ">{user.email}</p>
+                                        <p className="cursor-pointer text-sm leading-5 "></p>
                                     </div>
                                 </div>
                                 <div className="flex justify-between xl:h-full items-stretch w-full flex-col mt-6 md:mt-0">

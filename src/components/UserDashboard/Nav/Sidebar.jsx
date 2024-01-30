@@ -52,7 +52,7 @@ const Sidebar = () => {
                     </div>
 
                     <li className="text-sm text-gray-500 ">
-                        <a href="#"
+                        <Link to='/dashboard/userprofile'
                             className="flex items-center w-full py-1 px-2 rounded relative hover:text-white hover:bg-gray-700 ">
                             <div className="pr-2">
                                 <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -61,7 +61,7 @@ const Sidebar = () => {
                                 </svg>
                             </div>
                             <div>Profile </div>
-                        </a>
+                        </Link>
                     </li>
                     <li className="text-sm text-gray-500 ">
                         <a href="#"
@@ -72,7 +72,7 @@ const Sidebar = () => {
                                         d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                                 </svg>
                             </div>
-                            <div><Link >Update Profile</Link></div>
+                            <div><Link to='/dashboard/userupdateprofile'>Update Profile</Link></div>
                         </a>
                     </li>
 

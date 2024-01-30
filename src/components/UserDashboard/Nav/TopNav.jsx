@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom";
 import { useSidebar } from "../../../context/SidebarContext";
 import { useState } from "react";
+import { useAuth } from "../../../context/AuthContext";
 
 const TopNav = () => {
+
+    const { authData, logout } = useAuth()
     const { toggleSidebar, isMobileOpen, toggleMobilebar } = useSidebar()
     const [isProfileClicked, setProfileClicked] = useState(false)
     const toggleProfile = () => {
@@ -123,13 +126,13 @@ const TopNav = () => {
                                         id="user-menu-button" aria-expanded="false" aria-haspopup="true">
                                         <span className="sr-only">Open user menu</span>
                                         <img className="h-8 w-8 rounded-full bg-white"
-                                            src="https://static.thenounproject.com/png/1146337-200.png"
+                                            src={`/api/auth/get-user-photo/${authData?.user._id}`}
                                             alt="" />
                                     </div>
 
                                     <div className="flex flex-col ml-4">
-                                        <span></span>
-                                        <span>Admin Role</span>
+
+                                        <span>{authData?.user.email}</span>
                                     </div>
                                 </div>
 
@@ -141,12 +144,10 @@ const TopNav = () => {
                                     <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                                         role="menuitem" tabIndex="-1" id="user-menu-item-0">My Profile</a>
 
-                                    <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                                        role="menuitem" tabIndex="-1" id="user-menu-item-1">Projects</a>
 
-                                    <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                                        role="menuitem" tabIndex="-1" id="user-menu-item-1">Sign
-                                        out</a>
+
+                                    <button onClick={logout} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                                        role="menuitem" tabIndex="-1" id="user-menu-item-1">Log out</button>
                                 </div>
                             </div>
 
@@ -188,8 +189,7 @@ const TopNav = () => {
                     <a href="#" className="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium"
                         aria-current="page">Dashboard</a>
 
-                    <a href="#"
-                        className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Team</a>
+
                 </div>
 
                 <div className="pt-4 pb-3 border-t border-gray-700">
@@ -197,12 +197,12 @@ const TopNav = () => {
                     <div className="flex items-center px-5">
                         <div className="flex-shrink-0">
                             <img className="h-10 w-10 rounded-full"
-                                src="https://static.vecteezy.com/system/resources/thumbnails/005/005/791/small/user-icon-in-trendy-flat-style-isolated-on-grey-background-user-symbol-for-your-web-site-design-logo-app-ui-illustration-eps10-free-vector.jpg"
+                                src={`/api/auth/get-user-photo/${authData?.user._id}`}
                                 alt="" />
                         </div>
                         <div className="ml-3">
-                            <div className="text-base font-medium leading-none text-white">Admin</div>
-                            <div className="text-sm font-medium leading-none text-gray-400">@example.com</div>
+                            <div className="text-base font-medium leading-none text-white">User</div>
+                            <div className="text-sm font-medium leading-none text-gray-400">{authData?.user.email}</div>
                         </div>
                         <button type="button"
                             className="ml-auto bg-gray-800 flex-shrink-0 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
@@ -216,12 +216,12 @@ const TopNav = () => {
 
                     </div>
                     <div className="mt-3 px-2 space-y-1 ">
-                        <a href="#" className="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700">
-                            Your Profile</a>
+                        <Link to='/dashboard/userprofile' className="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700"> Your Profile
+                        </Link>
 
-                        <a href="#"
+                        <button onClick={logout}
                             className="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700">
-                            Sign out</a>
+                            Log out</button>
                     </div>
                 </div>
             </div>

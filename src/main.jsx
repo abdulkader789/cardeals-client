@@ -47,7 +47,11 @@ import CreateUser from "./components/AdminDashboard/User/CreateUser";
 import AdminPrivateRoute from "./components/AdminPrivateRoute";
 
 import UpdateProduct from "./components/AdminDashboard/Product/UpdateProduct";
-import AdminOverview from "./components/AdminDashboard/Overview";
+import AdminOverview from "./components/AdminDashboard/AdminOverview";
+import UserPrivateRoute from "./components/UserPrivateRoute";
+import UserOverview from "./components/UserDashboard/UserOverview";
+import Profile from "./components/UserDashboard/Content/Profile";
+import UpdateProfile from "./components/UserDashboard/Content/UpdateProfile";
 
 const router = createBrowserRouter([
   {
@@ -83,7 +87,7 @@ const router = createBrowserRouter([
 
       {
         path: "/cart",
-        element: <PrivateRoute><CartPage /></PrivateRoute>
+        element: <CartPage />
       },
       {
         path: "/shop",
@@ -177,6 +181,19 @@ const router = createBrowserRouter([
             path: "orderdetails/:id",
             element: <AdminPrivateRoute><OrderDetails /></AdminPrivateRoute>
           },
+
+          {
+            path: "useroverview",
+            element: <UserPrivateRoute><UserOverview /></UserPrivateRoute>
+          },
+          {
+            path: "userprofile",
+            element: <UserPrivateRoute><Profile /></UserPrivateRoute>
+          },
+          {
+            path: "userupdateprofile",
+            element: <UserPrivateRoute><UpdateProfile /></UserPrivateRoute>
+          }
 
         ]
 
