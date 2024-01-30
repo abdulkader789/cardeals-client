@@ -8,6 +8,7 @@ const CreateProduct = () => {
     const [productData, setProductData] = useState({
         name: '',
         model: '',
+        brand: '',
         description: '',
         category: '',
         price: 0,
@@ -192,6 +193,23 @@ const CreateProduct = () => {
                                     placeholder="Product Model"
                                     value={productData.model}
                                     onChange={(e) => setProductData({ ...productData, model: e.target.value })}
+                                />
+                            </div>
+                        </div>
+                        {/* Brand */}
+                        <div className="md:flex mb-6">
+                            <div className="md:w-1/3">
+                                <legend className="uppercase tracking-wide text-sm">Brand</legend>
+                            </div>
+                            <div className="md:flex-1 mt-2 mb:mt-0 md:px-3">
+                                <label className="block uppercase tracking-wide text-xs font-bold">Name</label>
+                                <input
+                                    className="w-full shadow-inner p-4 border-0"
+                                    type="text"
+                                    name="brand"
+                                    placeholder="Product Brand"
+                                    value={productData.brand}
+                                    onChange={(e) => setProductData({ ...productData, brand: e.target.value })}
                                 />
                             </div>
                         </div>

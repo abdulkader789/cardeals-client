@@ -51,7 +51,7 @@ const UserBar = () => {
 
                     {/* <!-- Item --> */}
                     <li className="text-sm text-gray-500 ">
-                        <Link to='/dashboard/createcategory'>
+                        <Link to='/dashboard/createuser'>
                             <button
                                 className="flex items-center w-full py-1 px-2 rounded relative hover:text-white hover:bg-gray-700">
                                 <div> Create User </div>
