@@ -5,6 +5,7 @@ import TrustReasons from "../components/Home/TrustReasons";
 import VideoPlayer from "../components/utils/VideoPlayer";
 import BuyReasons from "../components/Home/BuyReasons";
 import OurProcess from "../components/OurProcess/OurProcess";
+import CarModels from "../components/CarModels/CarModels";
 
 const Home = () => {
     return (
@@ -14,6 +15,7 @@ const Home = () => {
 
             <Hero />
             <OurProcess />
+            <CarModels />
 
 
             <TrustReasons />

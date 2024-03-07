@@ -47,7 +47,7 @@ const NavLinks = () => {
                                 </div>
 
                                 {/* drop down nav links */}
-                                <ul className={`grid md:absolute md:top-14 bg-black bg-opacity-50 md:left-0 right-0 mx-auto md:w-1/2 overflow-hidden  transition-all duration-300 ease-in-out ${isOpen === index ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'} `}>
+                                <ul className={`grid md:absolute md:top-14 bg-black bg-opacity-50   mx-auto md:w-60 p-5 overflow-hidden  transition-all duration-300 ease-in-out ${isOpen === index ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'} `}>
                                     <div className="overflow-hidden flex flex-col">
                                         {navLink.dropdown.map((dropdownItem, subIndex) => (
                                             <li key={subIndex}>
