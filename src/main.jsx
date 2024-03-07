@@ -52,6 +52,7 @@ import UserPrivateRoute from "./components/UserPrivateRoute";
 import UserOverview from "./components/UserDashboard/UserOverview";
 import Profile from "./components/UserDashboard/Content/Profile";
 import UpdateProfile from "./components/UserDashboard/Content/UpdateProfile";
+import MobileNavContext, { MobileNavProvider } from "./context/MobileNavContext";
 
 const router = createBrowserRouter([
   {
@@ -209,26 +210,28 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <CategoryProvider>
-      <OrderProvider>
-        <UserProvider>
-          <CartProvider>
-            <SearchProvider>
+    <MobileNavProvider>
+      <CategoryProvider>
+        <OrderProvider>
+          <UserProvider>
+            <CartProvider>
+              <SearchProvider>
 
-              <ProductProvider>
+                <ProductProvider>
 
-                <AuthProvider>
-                  <SidebarProvider>
-                    <RouterProvider router={router} />
-                  </SidebarProvider>
-                </AuthProvider>
+                  <AuthProvider>
+                    <SidebarProvider>
+                      <RouterProvider router={router} />
+                    </SidebarProvider>
+                  </AuthProvider>
 
-              </ProductProvider>
+                </ProductProvider>
 
-            </SearchProvider>
-          </CartProvider>
-        </UserProvider>
-      </OrderProvider>
-    </CategoryProvider>
+              </SearchProvider>
+            </CartProvider>
+          </UserProvider>
+        </OrderProvider>
+      </CategoryProvider>
+    </MobileNavProvider>
   </React.StrictMode>
 );

@@ -1,0 +1,42 @@
+.mobile-nav-toggle {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+   
+
+}
+
+
+.mobile-nav-toggle span, .mobile-nav-toggle span:before, .mobile-nav-toggle span:after {
+  cursor: pointer;
+  border-radius: 1px;
+  height: 2px;
+  width: 50px;
+  background: rgb(233, 240, 233);
+  position: relative;
+  display: block;
+  content: '';
+  transition: all 250ms ease-in-out;
+}
+.mobile-nav-toggle span:before {
+  top: -10px; 
+}
+.mobile-nav-toggle span:after {
+  bottom: -7px;
+}
+
+.mobile-nav-toggle.active span {
+  background-color: transparent;
+}
+.mobile-nav-toggle.active span:before {
+  top:0px;
+  transform: rotate(45deg);
+}
+
+.mobile-nav-toggle.active span:after {
+  bottom:3px;
+  transform: rotate(-45deg);
+}

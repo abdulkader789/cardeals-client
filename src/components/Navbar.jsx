@@ -1,130 +1,52 @@
-import '../styles/Navbar.css'
-// Navbar.js
-import { useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch, faUser, faShoppingCart, faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
-import { Link, useLocation, useNavigate } from 'react-router-dom'
-import { useAuth } from '../context/AuthContext';
-const NavLinks = ({ visibility, homeNav }) => {
-    const { authData, logout } = useAuth(); // Get authData and logout function from AuthContext
-    const isLoggedIn = authData && authData.user;
-
-    // Function to handle logout
-    const handleLogout = () => {
-        logout(); // Call logout function from AuthContext
-    };
-
-    return (
-        <div className='ml-10'>
-            <ul className={`${visibility} text-center  lg:flex items-center justify-center lg:space-y-0 lg:space-x-10 space-y-10`}>
-                <li><Link to='/home' className={`${homeNav} uppercase nav-text pl-10`}>home</Link></li>
-                <li><Link to='/shop' className="uppercase nav-text">shop</Link></li>
-                <li><Link to='/about' className="uppercase nav-text">about</Link></li>
-                <li><Link to='/contact' className="uppercase nav-text">contact</Link></li>
-                {isLoggedIn ? (
-                    // If user is logged in, display logout button
-                    <li><button onClick={handleLogout} className="uppercase nav-text">logout</button></li>
-                ) : (
-                    // If user is not logged in, display login link
-                    <li><Link to='/login' className="uppercase nav-text">login</Link></li>
-                )}
-            </ul>
-        </div>
-    )
-
-}
-
-const NavIcons = ({ visibility }) => {
-    const { authData } = useAuth()
-    const isLoggedIn = authData && authData.user;
-
-    // Determine the role if the user is logged in, otherwise set it to 'user'
-    const role = isLoggedIn ? (authData.user.role === 1 ? 'admin' : 'user') : 'user';
-
-    return (
-        <div className={`${visibility} md:flex items-center space-x-10 `} >
-            <Link to='/search' className='icon-link'>
-                <FontAwesomeIcon icon={faSearch} className=" cursor-pointer nav-icon" />
-            </Link >
-            <Link to='/dashboard' className='icon-link'>
-                <FontAwesomeIcon icon={faUser} className=" cursor-pointer nav-icon" />
-            </Link>
-            <Link to='/cart' className='icon-link relative'>
-                <FontAwesomeIcon icon={faShoppingCart} className="cursor-pointer nav-icon" />
-
-            </Link>
-
-        </div>
-    )
-}
-
+import { useEffect, useState } from 'react';
+import FaBars from './Navbar/FaBars/FaBars';
+import NavLogo from './Navbar/NavLogo';
+import NavLinks from './Navbar/NavLinks';
+import NavIcons from './Navbar/NavIcons';
+import { useMobileNav } from '../context/MobileNavContext';
 
 const Navbar = () => {
-    const { authData } = useAuth();
-    const isTokenExists = authData && authData.token;
+    const { isActive } = useMobileNav();
+    const [scrolling, setScrolling] = useState(false);
 
-    // If the token doesn't exist, redirect to the login page
-    const [isSearchOpen, setSearchOpen] = useState(false);
-    const toggleSearch = () => {
-        setSearchOpen(!isSearchOpen);
-    };
-    const [isNavOpen, setIsNavOpen] = useState(false);
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 0) {
+                setScrolling(true);
+            } else {
+                setScrolling(false);
+            }
+        };
 
-    const toggleNav = () => {
-        setIsNavOpen(!isNavOpen);
-    };
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
 
-    const location = useLocation();
-
-
-    // If the token doesn't exist or the path is "/dashboard", do not render the Navbar
-    if (isTokenExists && location.pathname.startsWith('/dashboard')) {
-        return null;
-    }
     return (
-        <nav className=" px-5 py-2 flex flex-col">
-            <div className="container mx-auto flex items-center justify-between navbar-container">
-                <div className="flex items-center">
-
-                    <span className="text-2xl nav-logo font-extrabold uppercase ml-2 p-2 text-blue-600">
-                        <Link to='/home'>cardeals</Link>
-                    </span>
-                </div>
-                <div className='flex space-x-8'>
-                    <div className='mt-1'>
-                        <NavLinks visibility={'hidden'} homeNav={'home-nav'} />
-                    </div>
-                    <div className='pr-5'>
-                        <NavIcons setSearchOpen={setSearchOpen} visibility={'hidden'} />
-                    </div>
+        <nav className={`w-full fixed top-0 z-50  flex items-center transition-all duration-500 ease-in-out ${scrolling ? 'bg-white shadow-md' : 'bg-transparent text-white'}`}>
+            <div className="container mx-auto h-14 px-4 py-3 flex justify-between items-center">
+                <div className="w-1/3">
+                    <NavLogo />
                 </div>
 
-
-                {/* Responsive Navigation Toggle for Smaller Screens */}
-
-                <div className="lg:hidden flex items-center">
-                    <FontAwesomeIcon
-                        icon={isNavOpen ? faTimes : faBars}
-                        className={` cursor-pointer navbar-toggle-icon `}
-                        onClick={toggleNav}
-                    />
-                </div>
-                <div
-                    className={`lg:hidden bg-slate-200 absolute top-16 left-0 right-0  navbar-links transition-max-height duration-500 ${isNavOpen ? 'open py-5' : ''
-                        }`}
-                >
-                    <NavLinks visibility={'block'} />
-
+                <div className={`w-full hidden md:block`}>
+                    <NavLinks />
                 </div>
 
+                <div className={`flex  md:hidden w-full  absolute top-full left-0 min-h-screen z-50 transition-all duration-500 ease-in-out ${isActive ? 'translate-y-0' : 'translate-y-full'} md:default-style`}>
+                    <NavLinks />
+                </div>
 
+                <div className="w-1/3 flex justify-end">
+                    <NavIcons />
+                </div>
+
+                <div className="w-20 h-full  flex justify-end items-center md:hidden">
+                    <FaBars />
+                </div>
             </div>
-
-
-
-
-
-
         </nav>
     );
 };
