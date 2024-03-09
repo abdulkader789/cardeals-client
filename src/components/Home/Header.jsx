@@ -132,10 +132,11 @@ export const Header = () => {
                 spaceBetween={30}
                 effect={'fade'}
                 navigation={false}
-                autoplay={{ delay: 2000 }}
+
                 pagination={{
                     clickable: true,
                 }}
+                autoplay={{ delay: 2000 }}
                 modules={[EffectFade, Navigation, Pagination, Autoplay]}
 
 

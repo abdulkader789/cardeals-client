@@ -1,11 +1,12 @@
 import { Header } from "../components/Home/Header";
-import Hero from "../components/Home/Hero";
+
 
 import TrustReasons from "../components/Home/TrustReasons";
 import VideoPlayer from "../components/utils/VideoPlayer";
 import BuyReasons from "../components/Home/BuyReasons";
 import OurProcess from "../components/OurProcess/OurProcess";
 import CarModels from "../components/CarModels/CarModels";
+import Categories from "../components/Home/Categories";
 
 const Home = () => {
     return (
@@ -13,7 +14,7 @@ const Home = () => {
 
             <Header />
 
-            <Hero />
+            <Categories />
             <OurProcess />
             <CarModels />
 

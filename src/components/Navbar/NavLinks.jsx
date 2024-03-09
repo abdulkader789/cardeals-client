@@ -36,9 +36,9 @@ const NavLinks = () => {
                 {CONSTANTS.NAV_LINKS.map((navLink, index) => (
                     <li key={index} className='pr-5'>
                         {navLink.dropdown ? (
-                            <div className="">
-                                <div className=''>
-                                    <NavLink onClick={() => { handleOptionClick(index); handleLinkClick(); }}>{navLink.name}</NavLink>
+                            <div className="relative">
+                                <div className='relative'>
+                                    <NavLink className='' onClick={() => { handleOptionClick(index); handleLinkClick(); }}>{navLink.name}</NavLink>
                                     <FontAwesomeIcon
                                         onClick={() => toggle(index)}
                                         className='pl-3'
@@ -47,7 +47,7 @@ const NavLinks = () => {
                                 </div>
 
                                 {/* drop down nav links */}
-                                <ul className={`grid md:absolute md:top-14 bg-black bg-opacity-50   mx-auto md:w-60 p-5 overflow-hidden  transition-all duration-300 ease-in-out ${isOpen === index ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'} `}>
+                                <ul className={`grid md:absolute md:top-10 bg-black bg-opacity-50   md:w-60 overflow-hidden  transition-all duration-300 ease-in-out ${isOpen === index ? 'grid-rows-[1fr] p-5  opacity-100' : 'grid-rows-[0fr] opacity-0'} `}>
                                     <div className="overflow-hidden flex flex-col">
                                         {navLink.dropdown.map((dropdownItem, subIndex) => (
                                             <li key={subIndex}>

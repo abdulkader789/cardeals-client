@@ -21,13 +21,13 @@ const OurProcess = () => {
     ];
 
     return (
-        <section className='mb-10'>
+        <section className='h-screen'>
             <header className='mb-5'>
                 <h1 className=" mb-10 text-center text-4xl font-roboto tracking-tight text-gray-900 ">
                     <span className="block  xl:inline capitalize">Cardeals Process</span>
                 </h1>
             </header>
-            <div className='flex flex-col md:flex-row md:space-x-5 p-5'>
+            <div className='flex flex-col md:flex-row md:space-x-5 p-5 space-y-5'>
 
                 {processData.map((data, index) => (
                     <ProcessCard key={index} data={data} />
