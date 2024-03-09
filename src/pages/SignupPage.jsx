@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 
-const Signup = () => {
+const SignupPage = () => {
     const navigate = useNavigate();
 
     const [formData, setFormData] = useState({
@@ -72,7 +72,7 @@ const Signup = () => {
             }
 
             const data = await response.json();
-            console.log("Signup successful:", data);
+            console.log("SignupPagesuccessful:", data);
 
             navigate('/login');
         } catch (error) {
@@ -134,4 +134,4 @@ const Signup = () => {
     );
 };
 
-export default Signup;
+export default SignupPage;

@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
-import FaBars from './Navbar/FaBars/FaBars';
-import NavLogo from './Navbar/NavLogo';
-import NavLinks from './Navbar/NavLinks';
-import NavIcons from './Navbar/NavIcons';
+import FaBars from '../components/Navbar/FaBars/FaBars';
+import NavLogo from '../components/Navbar/NavLogo';
+import NavLinks from '../components/Navbar/NavLinks';
+import NavIcons from '../components/Navbar/NavIcons';
 import { useMobileNav } from '../context/MobileNavContext';
 
 const Navbar = () => {

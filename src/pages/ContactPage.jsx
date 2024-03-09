@@ -3,7 +3,7 @@ import { useAuth } from '../context/AuthContext';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const Contact = () => {
+const ContactPage = () => {
     const { authData } = useAuth();
     const [formData, setFormData] = useState({
         name: '',
@@ -158,4 +158,4 @@ const Contact = () => {
     );
 };
 
-export default Contact;
+export default ContactPage;

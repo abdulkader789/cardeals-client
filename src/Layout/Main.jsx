@@ -12,15 +12,14 @@
 // export default Main;
 
 
-import React, { useState } from 'react';
-import Navbar from '../components/Navbar';
 import { Outlet } from 'react-router-dom';
 import { useMobileNav } from '../context/MobileNavContext';
+import Navbar from '../pages/Navbar';
 
 
 const Main = () => {
 
-    const { isActive } = useMobileNav()
+
     return (
         <div className="main-container">
             <Navbar />

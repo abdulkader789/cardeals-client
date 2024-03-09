@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import LoadingBar from './Loader/LoadingBar';
+import LoadingBar from '../components/Loader/LoadingBar';
 import { useCart } from '../context/CartContext';
 
 
-const ProductDetails = () => {
+const ProductDetailsPage = () => {
     const { id } = useParams();
     const [product, setProduct] = useState(null);
     const { addToCart } = useCart();
@@ -64,4 +64,4 @@ const ProductDetails = () => {
     );
 };
 
-export default ProductDetails;
+export default ProductDetailsPage;

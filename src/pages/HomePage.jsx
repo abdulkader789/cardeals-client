@@ -1,27 +1,29 @@
-import { Header } from "../components/Home/Header";
 
 
-import TrustReasons from "../components/Home/TrustReasons";
-import VideoPlayer from "../components/utils/VideoPlayer";
-import BuyReasons from "../components/Home/BuyReasons";
-import OurProcess from "../components/OurProcess/OurProcess";
-import CarModels from "../components/CarModels/CarModels";
-import Categories from "../components/Home/Categories";
 
-const Home = () => {
+
+// import VideoPlayer from "../components/utils/VideoPlayer";
+
+
+// import CarModels from "../components/CarModels/CarModels";
+// import Categories from "../components/Home/Categories";
+import { Header } from "../components/Home/Header/Header";
+
+const HomePage = () => {
     return (
         <div>
 
+
             <Header />
 
-            <Categories />
-            <OurProcess />
-            <CarModels />
+            {/* <Categories /> */}
+
+            {/* <CarModels /> */}
 
 
-            <TrustReasons />
+            {/* <TrustReasons />
 
-            <BuyReasons />
+            <BuyReasons /> */}
 
 
 
@@ -181,4 +183,4 @@ const Home = () => {
     );
 };
 
-export default Home;
+export default HomePage;

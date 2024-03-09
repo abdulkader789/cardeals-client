@@ -101,13 +101,13 @@ const carCategories = [
 
 const Categories = () => {
 
-    const backgroundImageUrl = "https://lh3.googleusercontent.com/proxy/uuk6cUrF4M3pk3Dwo3_E1mShTfzshB5uQVBdWTGDnzhrK6pKonUtPjmO2RlbvcGGwzXM1y4KsvixX4MOKC-1HVqCmD7pCJMhvF1vZ9QxBacgSRopxhwgZD-9KoumZr3HQginJdercYAVRC91DaE";
+    const backgroundImageUrl = "https://hedonistshedonist.com/wp-content/uploads/2021/12/road-trip.jpg";
 
 
     return (
         <div className="relative flex h-screen mb-10 bg-cover bg-center shadow-md" style={{ backgroundImage: `url(${backgroundImageUrl})` }}>
             <div className="absolute inset-0 bg-blue-500 opacity-25"></div>
-            <div className="z-10 w-1/4 bg-blue-800 p-4 bg-opacity-25">
+            <div className="z-10 w-1/4 bg-blue-800 p-4 bg-opacity-50">
                 <h2 className="text-xl font-bold mb-4">Our Most Popular Categories</h2>
                 <p className="mb-4">Description goes here...</p>
                 <button className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded">
