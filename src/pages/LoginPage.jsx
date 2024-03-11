@@ -3,9 +3,9 @@ import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from "../context/AuthContext";
 
-const Login = () => {
+const LoginPage = () => {
     const { login } = useAuth()
-    const navigate = useNavigate();
+    const navigate = useNavigate(); s
     // State to store form data
     const [formData, setFormData] = useState({
         email: "",
@@ -125,4 +125,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default LoginPage;

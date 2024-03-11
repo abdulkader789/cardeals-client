@@ -105,29 +105,45 @@ const Categories = () => {
 
 
     return (
-        <div className="relative flex h-screen mb-10 bg-cover bg-center shadow-md" style={{ backgroundImage: `url(${backgroundImageUrl})` }}>
-            <div className="absolute inset-0 bg-blue-500 opacity-25"></div>
-            <div className="z-10 w-1/4 bg-blue-800 p-4 bg-opacity-50">
-                <h2 className="text-xl font-bold mb-4">Our Most Popular Categories</h2>
-                <p className="mb-4">Description goes here...</p>
-                <button className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded">
-                    View More
-                </button>
-            </div>
-            <div className="w-3/4 flex justify-center items-center px-5">
+
+        <div className='relative min-h-[90vh] mb-10 border py-10'>
+            <header className=''>
+                <h1 className=" mb-10 text-center text-4xl font-roboto tracking-tight text-gray-900 ">
+                    <span className="block  xl:inline capitalize">Browse By Category</span>
+                </h1>
+            </header>
+            <div className="w-full   px-5">
                 <Swiper
-                    slidesPerView={3}
+                    // slidesPerView={4}
                     spaceBetween={20}
                     autoplay={{ delay: 2000 }}
                     modules={[Autoplay]}
-                    className="mySwiper h-[70vh]"
+                    breakpoints={{
+                        // when window width is >= 320px (1 slide)
+                        320: {
+                            slidesPerView: 1,
+                        },
+                        // when window width is >= 640px (2 slides)
+                        640: {
+                            slidesPerView: 2,
+                        },
+                        // when window width is >= 768px (3 slides)
+                        768: {
+                            slidesPerView: 3,
+                        },
+                        // when window width is >= 1024px (4 slides)
+                        1024: {
+                            slidesPerView: 4,
+                        },
+                    }}
+                    className="mySwiper h-[50vh] "
 
                 >
 
                     {carCategories.map((category, index) => (
-                        <SwiperSlide key={index} className='cursor-pointer'>
+                        <SwiperSlide key={index} className='cursor-pointer border border-gray-400'>
                             <div className=" h-full bg-white" >
-                                <img src={category.imageUrl} alt={category.category} className="scale-75 h-[70%]" />
+                                <img src={category.imageUrl} alt={category.category} className="scale-75 h-[80%]" />
                                 <h2 className=" h-full text-center font-bold text-xl">{category.category}</h2>
                             </div>
 

@@ -14,7 +14,7 @@
   cursor: pointer;
   border-radius: 1px;
   height: 2px;
-  width: 50px;
+  width: 30px;
   background: rgb(233, 240, 233);
   position: relative;
   display: block;
@@ -22,10 +22,10 @@
   transition: all 250ms ease-in-out;
 }
 .mobile-nav-toggle span:before {
-  top: -10px; 
+  top: -7px; 
 }
 .mobile-nav-toggle span:after {
-  bottom: -7px;
+  bottom: -5px;
 }
 
 .mobile-nav-toggle.active span {

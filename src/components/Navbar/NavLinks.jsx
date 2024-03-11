@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons'; // Import arrow icons
 import CONSTANTS from '../../constants/constants';
 import { useMobileNav } from '../../context/MobileNavContext';
+import NavIcons from './NavIcons';
 
 const NavLinks = () => {
     const { handleClick } = useMobileNav()
@@ -31,23 +32,24 @@ const NavLinks = () => {
     };
 
     return (
-        <div className={`outfit-light text-sm`}>
-            <ul className='flex flex-col md:flex-row '>
+        <div className={`outfit-light text-sm w-full`}>
+            <ul className='flex  flex-col lg:flex-row w-full'>
                 {CONSTANTS.NAV_LINKS.map((navLink, index) => (
-                    <li key={index} className='pr-5'>
+                    <li key={index} className='pr-5 px-5 lg:px-0 py-2  lg:py-0 text-xl hover:bg-black hover:bg-opacity-50'>
                         {navLink.dropdown ? (
                             <div className="relative">
                                 <div className='relative'>
                                     <NavLink className='' onClick={() => { handleOptionClick(index); handleLinkClick(); }}>{navLink.name}</NavLink>
                                     <FontAwesomeIcon
                                         onClick={() => toggle(index)}
-                                        className='pl-3'
+                                        className='pl-3 lg:pl-0'
                                         icon={activeFaIcon === index ? (isOpen ? faAngleUp : faAngleDown) : faAngleDown} // Change icon based on activeFaIcon
                                     />
                                 </div>
 
                                 {/* drop down nav links */}
-                                <ul className={`grid md:absolute md:top-10 bg-black bg-opacity-50   md:w-60 overflow-hidden  transition-all duration-300 ease-in-out ${isOpen === index ? 'grid-rows-[1fr] p-5  opacity-100' : 'grid-rows-[0fr] opacity-0'} `}>
+                                <ul className={`grid md:absolute lg:top-8 
+                                 w-full  lg:w-60 overflow-hidden  transition-all duration-300 ease-in-out ${isOpen === index ? 'grid-rows-[1fr]  ' : 'grid-rows-[0fr] '} `}>
                                     <div className="overflow-hidden flex flex-col">
                                         {navLink.dropdown.map((dropdownItem, subIndex) => (
                                             <li key={subIndex}>
@@ -56,13 +58,18 @@ const NavLinks = () => {
                                         ))}
                                     </div>
                                 </ul>
+
                             </div>
                         ) : (
                             <NavLink to={navLink.url} onClick={handleLinkClick}>{navLink.name}</NavLink>
                         )}
                     </li>
                 ))}
+
+
             </ul>
+
+
         </div>
     );
 };

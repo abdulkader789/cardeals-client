@@ -31,7 +31,7 @@ const CarModels = () => {
     };
 
     return (
-        <div className='min-h-screen'>
+        <div className='min-h-[90vh]'>
             <header>
                 <h1 className="mb-10 text-center text-4xl font-roboto tracking-tight text-gray-900">
                     <span className="block xl:inline capitalize">Browse By Models</span>

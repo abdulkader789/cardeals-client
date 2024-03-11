@@ -4,9 +4,9 @@ const NavLogo = () => {
 
     return (
         <div className="">
-            <span className="text-2xl michroma-regular font-extrabold uppercase text-blue-500">
+            <h1 className="text-xl h-full p-3 michroma-regular  font-extrabold uppercase text-white">
                 <Link to='/home'>cardeals</Link>
-            </span>
+            </h1>
         </div>
     )
 }

@@ -58,26 +58,22 @@ export const Header = () => {
 
 
     return (
-        <section>
+        <section className='relative'>
             <Swiper
                 spaceBetween={30}
                 effect={'fade'}
                 navigation={false}
-
-                pagination={{
-                    clickable: true,
-                }}
+                pagination={{ clickable: true }}
                 autoplay={{ delay: 2000 }}
                 modules={[EffectFade, Navigation, Pagination, Autoplay]}
-
-
-                className="mySwiper "
+                className="mySwiper"
+                simulateTouch={false}
             >
                 {items.map((item, index) => (
                     <SwiperSlide key={index}>
-                        <div className="relative w-full h-screen">
-                            <img src={item.url} alt={`Slide ${index + 1}`} className="w-full h-full object-cover" />
-                            <div className="absolute left-20 top-1/2 transform -translate-y-1/2 text-white p-6">
+                        <div className="relative w-full h-full lg:h-screen">
+                            <img src={item.url} alt={` ${index + 1}`} className="w-full h-full object-cover" />
+                            <div className="absolute left-20 top-1/2 transform -translate-y-1/2 text-white p-6 ">
                                 <h2 className="text-5xl outfit-bold">{item.model}</h2>
                                 <div className="flex items-center">
                                     <p className="text-lg mr-2">{item.price}</p>
@@ -92,8 +88,6 @@ export const Header = () => {
                     </SwiperSlide>
                 ))}
             </Swiper>
-
-
-        </section >
+        </section>
     );
 };

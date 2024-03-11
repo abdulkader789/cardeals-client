@@ -7,7 +7,10 @@
 
 // import CarModels from "../components/CarModels/CarModels";
 // import Categories from "../components/Home/Categories";
+import CarModels from "../components/Home/CarModels/CarModels";
+import Categories from "../components/Home/Categories/Categories";
 import { Header } from "../components/Home/Header/Header";
+import DropDown from "../components/Navbar/DropDown/DropDown";
 
 const HomePage = () => {
     return (
@@ -15,10 +18,10 @@ const HomePage = () => {
 
 
             <Header />
+            <DropDown />
+            <Categories />
 
-            {/* <Categories /> */}
-
-            {/* <CarModels /> */}
+            <CarModels />
 
 
             {/* <TrustReasons />

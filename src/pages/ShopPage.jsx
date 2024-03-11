@@ -4,7 +4,7 @@ import { useProduct } from "../context/ProductContext";
 import ProductCard from "../components/AdminDashboard/Product/ProductCard";
 import LoadingBar from "../components/Loader/LoadingBar";
 
-const Shop = () => {
+const ShopPage = () => {
     const pricesArray = [
         { _id: 1, name: "$0 - $10,000", array: [0, 10000] },
         { _id: 2, name: "$10,001 - $20,000", array: [10001, 20000] },
@@ -131,4 +131,4 @@ const Shop = () => {
     );
 };
 
-export default Shop;
+export default ShopPage;
