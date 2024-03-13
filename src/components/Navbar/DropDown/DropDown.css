@@ -1,0 +1,7 @@
+/* styles.css */
+@media (min-width: 768px) {
+    .custom-grid {
+        --num-columns: 4; /* Default number of columns for md breakpoint */
+        --container-width-vw: 80; /* Default container width in vw for md breakpoint */
+    }
+}

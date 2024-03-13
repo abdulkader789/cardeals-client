@@ -41,8 +41,8 @@ const Navbar = () => {
                     <NavLinks />
                 </div>
 
-                <div className={`flex lg:hidden text-white w-full lg:w-auto absolute top-full left-0 min-h-screen lg:min-h-0 transition-all duration-500 ease-in-out ${isActive ? 'translate-y-0' : 'translate-y-full'} `}
-                    style={scrolling || isActive ? { backgroundColor: 'rgba(0, 0, 0, 0.7)', backdropFilter: 'blur(10px)', zIndex: 999 } : {}}
+                <div className={`flex bg-inherit lg:hidden text-white w-full lg:w-auto absolute top-full left-0 min-h-screen lg:min-h-0 transition-all duration-500 ease-in-out ${isActive ? 'translate-y-0' : 'translate-y-full'} `}
+
                 >
                     <NavLinks />
 
