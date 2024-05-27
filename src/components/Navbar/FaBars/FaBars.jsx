@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './FaBars.css'
-import { useMobileNav } from '../../../context/MobileNavContext';
+import { useMobileNav } from '../../../../../cardeals-client/src/context/MobileNavContext';
 
 const FaBars = () => {
     const { isActive, handleClick } = useMobileNav()

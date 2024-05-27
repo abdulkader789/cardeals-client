@@ -302,6 +302,27 @@ H
 }
 */
 
+/* styles.css */
+.glassy-background {
+  background-color: rgba(0, 0, 0, 0.5);
+}
 
 
+.dropdown-content {
+  max-height: 60vh; /* Adjust this value as needed */
+  overflow-y: auto;
+}
+
+@media (max-width: 1024px) { /* Media query for mobile devices */
+  .navbar-mobile-dropdown {
+    max-height: 80vh;
+    overflow-y: auto;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    background-color: black;
+    z-index: 10;
+  }
+}
 
