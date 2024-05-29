@@ -2,8 +2,80 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleDown, faAngleUp } from "@fortawesome/free-solid-svg-icons";
-import CONSTANTS from "../../../../cardeals-client/src/constants/constants";
 import { useMobileNav } from "../../../../cardeals-client/src/context/MobileNavContext";
+
+const NAV_LINKS = [
+  {
+    name: "Home",
+    url: "/",
+  },
+  {
+    name: "About",
+    url: "/about",
+  },
+  {
+    name: "Services",
+    url: "/services",
+  },
+  {
+    name: "Cars",
+    url: "/cars",
+    dropdown: [
+      {
+        name: "SUVs",
+        url: "/cars/suvs",
+        dropdown: [
+          {
+            name: "Models",
+            models: ["CR-V", "Rogue", "Escape", "RAV4", "Tucson"],
+          },
+        ],
+      },
+      {
+        name: "Sedans",
+        url: "/cars/sedans",
+        dropdown: [
+          {
+            name: "Models",
+            models: ["Corolla", "Civic", "Accord", "Camry", "Altima"],
+          },
+        ],
+      },
+      {
+        name: "Trucks",
+        url: "/cars/trucks",
+        dropdown: [
+          {
+            name: "Models",
+            models: ["F-150", "Silverado", "Ram 1500", "Tundra", "Titan"],
+          },
+        ],
+      },
+    ],
+  },
+  {
+    name: "Pages",
+    url: "/pages",
+    dropdown: [
+      {
+        name: "Page 1",
+        url: "/pages/page1",
+      },
+      {
+        name: "Page 2",
+        url: "/pages/page2",
+      },
+    ],
+  },
+  {
+    name: "Blog",
+    url: "/blog",
+  },
+  {
+    name: "Contact",
+    url: "/contact",
+  },
+];
 
 const NavLinks = () => {
   const { handleClick } = useMobileNav();
@@ -68,7 +140,7 @@ const NavLinks = () => {
   return (
     <div className="outfit-light text-sm w-full  p-4 lg:p-10">
       <ul className="flex flex-col lg:flex-row w-full">
-        {CONSTANTS.NAV_LINKS.map((navLink, index) => (
+        {NAV_LINKS.map((navLink, index) => (
           <li key={index} className="my-2 lg:my-0 lg:mx-4">
             {navLink.dropdown ? (
               <div className="">
