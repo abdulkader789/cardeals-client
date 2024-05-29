@@ -13,7 +13,7 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 0) {
+      if (window.scrollY > 100) {
         setScrolling(true);
       } else {
         setScrolling(false);
@@ -31,7 +31,7 @@ const Navbar = () => {
       <div
         className="w-full h-14 py-3 flex justify-between items-center"
         style={
-          scrolling || isActive
+          scrolling
             ? {
                 backgroundColor: "rgba(0, 0, 0, 0.5)",
                 backdropFilter: "blur(10px)",
@@ -49,9 +49,9 @@ const Navbar = () => {
         </div>
 
         <div
-          className={`flex lg:hidden text-white w-full lg:w-auto absolute top-full left-0 ${
-            isActive ? "h-screen overflow-y-auto" : "h-0 overflow-hidden"
-          } transition-all duration-500 ease-in-out bg-black bg-opacity-95`}
+          className={`flex lg:hidden h-[95vh] text-white w-full lg:w-auto absolute top-full left-0 transform ${
+            isActive ? "translate-y-0" : "translate-y-full"
+          } transition-transform duration-500 ease-in-out bg-black bg-opacity-95`}
         >
           <NavLinks />
         </div>
