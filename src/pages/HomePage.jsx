@@ -5,6 +5,8 @@
 import CarModels from "../components/Home/CarModels/CarModels";
 import Categories from "../components/Home/Categories/Categories";
 import { Header } from "../components/Home/Header/Header";
+import TestForm from "../components/TestForm";
+import TestHero from "../components/TestHero";
 
 const HomePage = () => {
   return (
@@ -14,7 +16,8 @@ const HomePage = () => {
       <Categories />
 
       <CarModels />
-
+      <TestHero />
+      <TestForm />
       {/* <TrustReasons />
 
             <BuyReasons /> */}

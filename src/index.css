@@ -326,3 +326,35 @@ H
   }
 }
 
+/* src/components/TestHero.css */
+.wrap {
+  display: flex;
+ 
+
+}
+
+.box1, .box2 {
+  height: 400px;
+  position: relative; /* Ensure content is positioned relative to each box */
+  overflow: hidden; /* Prevent content overflow outside clipped area */
+}
+
+.box {
+  flex: 1;
+  width: 50%; /* Ensure each box takes up 50% of the width */
+  padding: 10px;
+}
+
+.box1 {
+  clip-path: polygon(0 0, 110% 0, calc(100% - 1rem) 100%, 0% 100%);
+  background: rgb(42, 10, 184);
+}
+
+.box2 {
+  margin-left: -20%; /* Adjust to align with the extended top-right corner of box1 */
+  clip-path: polygon(10% 0, 100% 0, 100% 100%, 0 100%);
+  background-image: url('https://burst.shopifycdn.com/photos/students-working-and-studying-flatlay.jpg?width=925&exif=0&iptc=0');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}

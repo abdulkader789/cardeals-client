@@ -37,12 +37,11 @@ const SearchCar = () => {
         onClick={handleExpand}
       >
         <FontAwesomeIcon
-          className="text-white relative left-2 mt-1"
+          className="text-white absolute right-2"
           icon={faSearch}
         />
         <input
           type="text"
-          placeholder="Search"
           className="mr-2 text-right cursor-pointer   hidden bg-transparent md:inline-block"
           style={{ border: "none", outline: "none", color: "orange" }}
         />
