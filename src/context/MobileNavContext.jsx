@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState } from "react";
 
 // Create a context object
 const MobileNavContext = createContext();
@@ -8,17 +8,15 @@ export const useMobileNav = () => useContext(MobileNavContext);
 
 // Create a provider component
 export const MobileNavProvider = ({ children }) => {
-    const [isActive, setIsActive] = useState(false);
+  const [isActive, setIsActive] = useState(false);
 
-    const handleClick = () => {
-        setIsActive(!isActive);
-    };
+  const handleClick = () => {
+    setIsActive(!isActive);
+  };
 
-    return (
-        <MobileNavContext.Provider value={{ isActive, handleClick }}>
-            {children}
-        </MobileNavContext.Provider>
-    );
+  return (
+    <MobileNavContext.Provider value={{ isActive, handleClick }}>
+      {children}
+    </MobileNavContext.Provider>
+  );
 };
-
-export default MobileNavContext;
