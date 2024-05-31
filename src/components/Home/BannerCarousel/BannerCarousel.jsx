@@ -51,8 +51,8 @@ export const BannerCarousel = () => {
     {
       imageUrl:
         "https://imageio.forbes.com/specials-images/imageserve/5d35eacaf1176b0008974b54/0x0.jpg?format=jpg&crop=4560,2565,x790,y784,safe&height=900&width=1600&fit=bounds",
-      heading: "Unleash the Power",
-      subheading: "High-Performance Sports Models",
+      heading: "Unleash Power",
+      subheading: "Performance Sports Models",
       subtitle:
         "Feel the raw power and acceleration with our high-performance sports models.",
     },
