@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/effect-fade";
@@ -25,7 +25,7 @@ export const Header = () => {
   ];
 
   return (
-    <section className="relative">
+    <section className="relative w-full">
       <Swiper
         spaceBetween={30}
         effect={"fade"}
@@ -33,7 +33,7 @@ export const Header = () => {
         pagination={{ clickable: true }}
         autoplay={{ delay: 2000 }}
         modules={[EffectFade, Navigation, Pagination, Autoplay]}
-        className="mySwiper h-full"
+        className="mySwiper h-full w-full"
         simulateTouch={false}
       >
         {items.map((item, index) => (

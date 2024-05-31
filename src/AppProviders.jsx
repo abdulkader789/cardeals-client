@@ -1,7 +1,12 @@
+import { CategoryProvider } from "./context/CategoryContext";
 import { MobileNavProvider } from "./context/MobileNavContext";
 
 const AppProviders = ({ children }) => {
-  return <MobileNavProvider>{children}</MobileNavProvider>;
+  return (
+    <MobileNavProvider>
+      <CategoryProvider>{children}</CategoryProvider>
+    </MobileNavProvider>
+  );
 };
 
 export default AppProviders;

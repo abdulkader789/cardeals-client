@@ -7,7 +7,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'http://localhost:3000/api/v1', // Replace with your backend server URL
+        target: 'https://cardeals-server-fdh3.vercel.app/api/v1', // Replace with your backend server URL
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ''),
       },
