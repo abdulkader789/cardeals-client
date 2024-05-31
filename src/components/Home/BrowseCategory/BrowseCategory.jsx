@@ -72,13 +72,13 @@ const CategorySlider = () => {
 const BrowseCategory = () => {
   return (
     <div
-      className="flex flex-col justify-center lg:justify-normal bg-cover h-[50vh] lg:h-screen lg:flex-row items-center "
+      className="flex flex-col justify-start lg:justify-normal bg-cover h-[50vh] lg:h-screen lg:flex-row items-center "
       style={{
         backgroundImage: `url('https://www.honda.com.tr/assets/img/accord/home-banner.png')`,
       }}
     >
       <div
-        className="w-full my-5 lg:my-0 bg-black lg:w-[40%] h-auto lg:h-full flex justify-center opacity-70  items-center "
+        className="w-full my-5  lg:my-0 bg-black lg:w-[40%] h-auto lg:h-full flex justify-center opacity-70  items-center "
         style={{
           clipPath: "polygon(0 0%, 100% 0, 85% 100%, 0% 100%)",
         }}
