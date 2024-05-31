@@ -11,8 +11,8 @@ export const BannerCarousel = () => {
     {
       imageUrl:
         "https://cdn.motor1.com/images/mgl/G33JZA/s3/bentley-mulliner-batur.jpg",
-      heading: "Discover the New 2024 Sports Car",
-      subheading: "Ultimate Performance and Comfort",
+      heading: "Discover the Sports Car",
+      subheading: "Ultimate Comfort and  Performance",
       subtitle:
         "Experience the ultimate driving pleasure with top-notch performance and cutting-edge.",
     },
@@ -27,7 +27,7 @@ export const BannerCarousel = () => {
     {
       imageUrl:
         "https://cdn.motor1.com/images/mgl/G33JZA/s3/bentley-mulliner-batur.jpg",
-      heading: "Adventure Awaits with Our SUV Range",
+      heading: "Adventure Our SUV Range",
       subheading: "Rugged and Versatile SUVs",
       subtitle:
         "Conquer any terrain with our rugged and versatile SUVs, designed for the adventurer in you.",
@@ -51,7 +51,7 @@ export const BannerCarousel = () => {
     {
       imageUrl:
         "https://imageio.forbes.com/specials-images/imageserve/5d35eacaf1176b0008974b54/0x0.jpg?format=jpg&crop=4560,2565,x790,y784,safe&height=900&width=1600&fit=bounds",
-      heading: "Unleash the Power Within",
+      heading: "Unleash the Power",
       subheading: "High-Performance Sports Models",
       subtitle:
         "Feel the raw power and acceleration with our high-performance sports models.",
