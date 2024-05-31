@@ -75,16 +75,20 @@ const BrowseCategory = () => {
       }}
     >
       <div
-        className="w-full my-5  lg:my-0 bg-black lg:w-[40%] h-auto lg:h-full flex justify-center opacity-70  items-center "
+        className="w-full my-5 flex-col lg:my-0 bg-black lg:w-[40%] h-auto lg:h-full flex justify-center opacity-70  items-center "
         style={{
           clipPath: "polygon(0 0%, 100% 0, 85% 100%, 0% 100%)",
         }}
       >
-        <h1 className=" montserrat-regular text-center text-xl lg:text-4xl   text-white">
+        <h1 className=" montserrat-regular text-center text-xl lg:text-4xl mb-3 lg:mb-5   text-white">
           Browse By Category
         </h1>
+        <button className="roboto-regular uppercase text-sm lg:tex-lg border bg-gray-800 bg-opacity-60 shadow-md border-gray-400 text-white py-2 lg:py-3 px-6 lg:px-20 hover:bg-black hover:bg-opacity-100">
+          Book Test Drive
+        </button>
       </div>
-      <div className="w-full h-[35vh] lg:h-auto lg:w-[60%] flex justify-center items-center">
+
+      <div className="w-full h-[35vh] mb-3 lg:h-auto lg:w-[60%] flex justify-center items-center">
         <CategorySlider />
       </div>
     </div>
