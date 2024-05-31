@@ -16,7 +16,7 @@ const CategorySlider = () => {
   return (
     <Swiper
       // slidesPerView={4}
-      spaceBetween={10}
+      // spaceBetween={10}
       autoplay={{ delay: 2000 }}
       modules={[Autoplay]}
       breakpoints={{
@@ -33,20 +33,23 @@ const CategorySlider = () => {
           slidesPerView: 3,
         },
         // when window width is >= 1024px (4 slides)
-        // 1024: {
-        //   slidesPerView: 4,
-        // },
+        1024: {
+          slidesPerView: 4,
+        },
       }}
-      className="mySwiper w-full"
+      className="mySwiper w-3/4"
     >
       {categoryData?.map((category, index) => (
-        <SwiperSlide key={index} className="cursor-pointer border">
-          <div className=" h-[250px] lg:h-[300px] ">
-            <img
-              src={category.image}
-              alt={category.name}
-              className=" h-[80%]"
-            />
+        <SwiperSlide key={index} className="cursor-pointer">
+          <div className="border h-[300px] w-[250px] lg:h-[300px]">
+            <div className="h-[80%] w-full">
+              <img
+                src={category.image}
+                alt={category.name}
+                className="h-full object-fit"
+              />
+            </div>
+
             <div className="h-[20%] flex items-center pl-5">
               <h2 className="uppercase text-center font-bold text-xl">
                 {category.name}
@@ -67,7 +70,7 @@ const BrowseCategory = () => {
           Browse By Category
         </h1>
       </div>
-      <div className="w-full lg:w-3/4 px-0">
+      <div className="w-full lg:w-3/4 ">
         <CategorySlider />
       </div>
     </div>

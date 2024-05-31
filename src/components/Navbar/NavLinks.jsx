@@ -221,15 +221,14 @@ const NavLinks = () => {
   };
 
   return (
-    <div className="outfit-light text-sm w-full p-4 lg:p-10">
+    <div className="poppins-light uppercase text-[16px] w-full p-4 lg:p-10">
       <ul className="flex flex-col lg:flex-row w-full">
         {NAV_LINKS.map((navLink, index) => (
           <li key={index} className="my-2 lg:my-0 lg:mx-4">
             <NavLink
               to={navLink.url}
-              className="py-2 px-4"
+              className="py-2 px-4 "
               onClick={handleLinkClick}
-              activeClassName="active-link"
             >
               {navLink.name}
             </NavLink>

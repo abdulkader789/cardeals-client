@@ -59,7 +59,7 @@ export const Header = () => {
   ];
 
   return (
-    <section className="relative w-full">
+    <section className="relative w-full ">
       <Swiper
         spaceBetween={30}
         effect={"fade"}
@@ -78,13 +78,16 @@ export const Header = () => {
                 alt={` ${index + 1}`}
                 className="w-full h-full lg:object-cover "
               />
-              <div className="absolute lg:left-20 top-1/2 transform -translate-y-1/2 text-white p-6">
-                <h2 className="text-3xl lg:text-5xl font-bold mb-5">
+              <div className="absolute left-1/2 transform flex flex-col justify-center -translate-x-1/2 bottom-0 border bg-gray-600 w-[90vw] h-2/3 text-white bg-opacity-50 p-6 ">
+                <h2
+                  className="text-3xl lg:text-5xl font-bold mb-2 playfair-regular"
+                  style={{ lineHeight: "1.2" }}
+                >
                   {item.heading} <br />
                   {item.subheading}
                 </h2>
 
-                <p className="text-sm lg:text-xl">{item.subtitle}</p>
+                <p className="text-sm lg:text-xl work-sans">{item.subtitle}</p>
                 <div className="mt-5 flex  lg:flex-row lg:gap-4">
                   {/* <button
                     href={item.redirect}
@@ -92,7 +95,7 @@ export const Header = () => {
                   >
                     View Details
                   </button> */}
-                  <button className="bg-transparent text-sm border border-white text-white py-2 px-6 lg:py-4 lg:px-20">
+                  <button className="playfair-regular text-[18px] border bg-gray-800 bg-opacity-60 shadow-md border-gray-400 text-white py-2 px-6 lg:py-4 lg:px-20">
                     Buy Now
                   </button>
                 </div>

@@ -6,6 +6,7 @@ import NavIcons from "../components/Navbar/NavIcons";
 import { useMobileNav } from "../context/MobileNavContext";
 import SearchCar from "../components/Navbar/SearchCar";
 import ThemeSwitcher from "../components/utils/ThemeSwitcher";
+import LoginButton from "../components/Navbar/LoginButton";
 
 const Navbar = () => {
   const { isActive } = useMobileNav();
@@ -29,7 +30,7 @@ const Navbar = () => {
   return (
     <nav className="w-full fixed top-0 z-10 flex transition-all duration-500 ease-in-out">
       <div
-        className="w-full h-14 py-3 flex justify-between items-center"
+        className="w-full h-14 py-3 px-10 flex justify-between items-center"
         style={
           scrolling
             ? {
@@ -61,7 +62,7 @@ const Navbar = () => {
             <SearchCar />
           </div>
           <div className="hidden md:block text-white">
-            <NavIcons />
+            <LoginButton />
           </div>
           <ThemeSwitcher />
           <div className="lg:hidden relative h-full w-10 md:w-12">

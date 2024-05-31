@@ -33,17 +33,12 @@ const SearchCar = () => {
   return (
     <div className="relative">
       <div
-        className="flex items-center justify-center bg-transparent border  p-1"
+        className="flex items-center cursor-pointer justify-center bg-transparent   p-4"
         onClick={handleExpand}
       >
         <FontAwesomeIcon
           className="text-white absolute right-2"
           icon={faSearch}
-        />
-        <input
-          type="text"
-          className="mr-2 text-right cursor-pointer   hidden bg-transparent md:inline-block"
-          style={{ border: "none", outline: "none", color: "orange" }}
         />
       </div>
       {expanded && (
