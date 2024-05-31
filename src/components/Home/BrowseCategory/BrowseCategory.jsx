@@ -10,7 +10,7 @@ import "swiper/css/pagination";
 import { Autoplay } from "swiper/modules";
 import { useCategory } from "../../../context/CategoryContext";
 
-export const CategorySlider = () => {
+const CategorySlider = () => {
   const { categoryData, setCategoryData } = useCategory();
   console.log("categories from browse category: ", categoryData);
   return (
