@@ -16,7 +16,9 @@ export const CategoryProvider = ({ children }) => {
   // Function to fetch categories and set them in the state
   const fetchCategories = async () => {
     try {
-      const response = await fetch("/api/category/get-all-categories");
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/category/get-all-categories`
+      );
       if (response.ok) {
         const data = await response.json();
         setCategoryData(data.data);
