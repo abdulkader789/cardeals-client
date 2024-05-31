@@ -11,7 +11,7 @@ export const useCategory = () => {
 // Create the AuthProvider component
 export const CategoryProvider = ({ children }) => {
   // State to store category information
-  const [categoryData, setCategoryData] = useState(null);
+  const [categoryData, setCategoryData] = useState([]);
 
   // Function to fetch categories and set them in the state
   const fetchCategories = async () => {
@@ -27,6 +27,8 @@ export const CategoryProvider = ({ children }) => {
       console.error("Error fetching categories:", error);
     }
   };
+
+  console.log("test cateory data fetch: ", categoryData);
 
   // Effect to fetch categories from API on component mount
   useEffect(() => {
