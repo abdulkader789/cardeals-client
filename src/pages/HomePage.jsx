@@ -3,19 +3,18 @@
 // import CarModels from "../components/CarModels/CarModels";
 // import Categories from "../components/Home/Categories";
 import BrowseCategory from "../components/Home/BrowseCategory/BrowseCategory";
-import CarModels from "../components/Home/CarModels/CarModels";
 import Categories from "../components/Home/Categories/Categories";
-import { Header } from "../components/Home/Header/Header";
+import { BannerCarousel } from "../components/Home/BannerCarousel/BannerCarousel";
 import TestForm from "../components/TestForm";
 import TestHero from "../components/TestHero";
+import BrowseBrand from "../components/Home/BrowseBrand.jsx/BrowseBrand";
 
 const HomePage = () => {
   return (
     <div>
-      <Header />
+      <BannerCarousel />
       <BrowseCategory />
-      <TestHero />
-      <CarModels />
+      <BrowseBrand />
 
       <TestForm />
       {/* <TrustReasons />

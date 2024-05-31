@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import InitialModelCard from "./InitialModelCard";
+import BrandCard from "./BrandCard";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
 
-const CarModels = () => {
+const BrowseBrand = () => {
   const initialVisibleModels = 9;
   const [visibleModels, setVisibleModels] = useState(initialVisibleModels);
   const [showMore, setShowMore] = useState(false);
@@ -84,13 +84,13 @@ const CarModels = () => {
   return (
     <div className="min-h-[90vh]">
       <header>
-        <h1 className="mb-10 text-center text-4xl font-roboto tracking-tight text-gray-900">
+        <h1 className="my-10 montserrat-regular text-center text-4xl font-roboto tracking-tight text-gray-900">
           <span className="block xl:inline capitalize">Browse By Brands</span>
         </h1>
       </header>
       <section className="grid grid-cols-2 lg:grid-cols-3 w-full lg:w-[70vw] mx-auto">
         {carModels.slice(0, visibleModels).map((car, index) => (
-          <InitialModelCard key={index} data={car} />
+          <BrandCard key={index} data={car} />
         ))}
       </section>
       {carModels.length > initialVisibleModels && (
@@ -112,4 +112,4 @@ const CarModels = () => {
   );
 };
 
-export default CarModels;
+export default BrowseBrand;

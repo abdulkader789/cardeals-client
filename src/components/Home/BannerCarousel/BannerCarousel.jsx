@@ -6,7 +6,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { EffectFade, Navigation, Pagination, Autoplay } from "swiper/modules";
 
-export const Header = () => {
+export const BannerCarousel = () => {
   const sliderData = [
     {
       imageUrl:
@@ -14,7 +14,7 @@ export const Header = () => {
       heading: "Discover the New 2024 Sports Car",
       subheading: "Ultimate Performance and Comfort",
       subtitle:
-        "Experience the ultimate driving pleasure with top-notch performance and cutting-edge technology.",
+        "Experience the ultimate driving pleasure with top-notch performance and cutting-edge.",
     },
     {
       imageUrl:
@@ -78,17 +78,19 @@ export const Header = () => {
                 alt={` ${index + 1}`}
                 className="w-full h-full lg:object-cover "
               />
-              <div className="absolute left-1/2 transform flex flex-col justify-center -translate-x-1/2 bottom-0 border bg-gray-600 w-[90vw] h-2/3 text-white bg-opacity-50 p-6 ">
+              <div className="absolute  left-1/2 transform flex flex-col justify-center -translate-x-1/2 bottom-0  bg-gray-600 w-full h-full text-white bg-opacity-50 px-20 ">
                 <h2
-                  className="text-3xl lg:text-5xl font-bold mb-2 playfair-regular"
+                  className="text-3xl lg:text-5xl text-center font-bold mb-2 playfair-regular"
                   style={{ lineHeight: "1.2" }}
                 >
                   {item.heading} <br />
                   {item.subheading}
                 </h2>
 
-                <p className="text-sm lg:text-xl work-sans">{item.subtitle}</p>
-                <div className="mt-5 flex  lg:flex-row lg:gap-4">
+                <p className="text-sm lg:text-xl work-sans text-center">
+                  {item.subtitle}
+                </p>
+                <div className="mt-5 flex justify-center  lg:flex-row lg:gap-4">
                   {/* <button
                     href={item.redirect}
                     className="bg-orange-500 text-sm text-white py-2 px-6 lg:py-4 lg:px-12 rounded-full mr-2 hover:bg-white hover:text-black transition duration-300"

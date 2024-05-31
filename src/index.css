@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Joti+One&family=Michroma&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,800;1,400;1,500;1,600;1,700&family=Roboto:wght@300;400&family=Poppins:wght@300;400;500&display=swap&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap&family=Outfit:wght@100..900&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Joti+One&family=Michroma&family=Montserrat:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,800;1,400;1,500;1,600;1,700&family=Roboto:wght@300;400&family=Poppins:wght@300;400;500&display=swap&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap&family=Outfit:wght@100..900&display=swap');
 
 
 @tailwind base;
@@ -17,6 +16,30 @@
 .michroma-regular {
   font-family: "Michroma", sans-serif;
   font-weight: 400;
+  font-style: normal;
+}
+
+.montserrat-regular {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.montserrat-medium {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.montserrat-semibold {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.montserrat-bold {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
   font-style: normal;
 }
 
@@ -394,7 +417,6 @@ H
 .wrap {
   display: flex;
  
-
 }
 
 .box1, .box2 {
@@ -405,16 +427,17 @@ H
 
 .box {
   flex: 1;
-  width: 50%; /* Ensure each box takes up 50% of the width */
+   /* Ensure each box takes up 50% of the width */
   padding: 10px;
 }
 
 .box1 {
+  width: 30%;
   clip-path: polygon(0 0, 110% 0, calc(100% - 1rem) 100%, 0% 100%);
-  background: rgb(42, 10, 184);
 }
 
 .box2 {
+  width: 70%;
   margin-left: -20%; /* Adjust to align with the extended top-right corner of box1 */
   clip-path: polygon(10% 0, 100% 0, 100% 100%, 0 100%);
   background-image: url('https://burst.shopifycdn.com/photos/students-working-and-studying-flatlay.jpg?width=925&exif=0&iptc=0');
