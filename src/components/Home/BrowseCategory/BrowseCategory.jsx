@@ -53,10 +53,7 @@ const CategorySlider = () => {
               />
             </div>
 
-            <div
-              className="absolute bottom-0 h-10 flex w-full items-center justify-center bg-black"
-              style={{ backgroundColor: "rgba(0, 0, 0, 0.4)" }}
-            >
+            <div className="absolute bottom-5 flex w-full items-center justify-center ">
               <h2 className="uppercase w-full  text-center font-bold work-sans text-md mr-5 text-white">
                 {category.name}{" "}
                 <FontAwesomeIcon icon={faCar} className="ml-2 text-white" />
