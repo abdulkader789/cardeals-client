@@ -19,7 +19,7 @@ const CategorySlider = () => {
   return (
     <Swiper
       // slidesPerView={4}
-      // spaceBetween={20}
+      spaceBetween={10}
       autoplay={{ delay: 2000 }}
       modules={[Autoplay]}
       breakpoints={{
@@ -43,8 +43,8 @@ const CategorySlider = () => {
       className="mySwiper h-full w-full lg:w-[80%]"
     >
       {categoryData?.map((category, index) => (
-        <SwiperSlide key={index} className="cursor-pointer mx-2">
-          <div className="border relative h-full w-full lg:w-[280px] lg:h-[450px]">
+        <SwiperSlide key={index} className="cursor-pointer">
+          <div className="border relative h-full w-full lg:-auto lg:h-[450px]">
             <div className="h-full w-full ">
               <img
                 src={category.image}

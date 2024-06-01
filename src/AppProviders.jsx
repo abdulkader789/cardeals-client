@@ -1,10 +1,13 @@
+import { BrandProvider } from "./context/BrandContext";
 import { CategoryProvider } from "./context/CategoryContext";
 import { MobileNavProvider } from "./context/MobileNavContext";
 
 const AppProviders = ({ children }) => {
   return (
     <MobileNavProvider>
-      <CategoryProvider>{children}</CategoryProvider>
+      <CategoryProvider>
+        <BrandProvider>{children}</BrandProvider>
+      </CategoryProvider>
     </MobileNavProvider>
   );
 };

@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import BrandCard from "./BrandCard";
+import BrandCard from "./PopularCarCard";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
 
-const BrowseBrand = () => {
+const PopularCar = () => {
   const initialVisibleModels = 9;
   const [visibleModels, setVisibleModels] = useState(initialVisibleModels);
   const [showMore, setShowMore] = useState(false);
@@ -84,8 +84,8 @@ const BrowseBrand = () => {
   return (
     <div className="min-h-[90vh]">
       <header>
-        <h1 className="my-10 montserrat-regular text-center text-4xl font-roboto tracking-tight text-gray-900">
-          <span className="block xl:inline capitalize">Browse By Brands</span>
+        <h1 className="my-10 montserrat-regular text-center text-2xl lg:text-4xl font-roboto tracking-tight text-gray-900">
+          Popular Cars
         </h1>
       </header>
       <section className="grid grid-cols-2 lg:grid-cols-3 w-full lg:w-[70vw] mx-auto">
@@ -96,7 +96,7 @@ const BrowseBrand = () => {
       {carModels.length > initialVisibleModels && (
         <div className="show-more my-4 text-center flex justify-center">
           <button
-            className="text-xl roboto-medium flex items-center justify-center space-x-2"
+            className="text-sm lg:text-xl roboto-medium flex items-center justify-center space-x-2"
             onClick={toggleShowMore}
           >
             {showMore ? (
@@ -112,4 +112,4 @@ const BrowseBrand = () => {
   );
 };
 
-export default BrowseBrand;
+export default PopularCar;

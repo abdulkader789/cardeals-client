@@ -7,7 +7,8 @@ import Categories from "../components/Home/Categories/Categories";
 import { BannerCarousel } from "../components/Home/BannerCarousel/BannerCarousel";
 import TestForm from "../components/TestForm";
 import TestHero from "../components/TestHero";
-import BrowseBrand from "../components/Home/BrowseBrand.jsx/BrowseBrand";
+import BrowseBrand from "../components/Home/BrowseBrand/BrowseBrand";
+import PopularCar from "../components/Home/PopularCar/PopularCar";
 
 const HomePage = () => {
   return (
@@ -15,7 +16,7 @@ const HomePage = () => {
       <BannerCarousel />
       <BrowseCategory />
       <BrowseBrand />
-
+      <PopularCar />
       <TestForm />
       {/* <TrustReasons />
 
