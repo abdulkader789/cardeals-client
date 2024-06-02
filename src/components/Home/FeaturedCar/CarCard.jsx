@@ -4,7 +4,7 @@ import "./FeaturedCar.css";
 const CarCard = ({ data }) => {
   console.log("data ", data);
   return (
-    <div className="h-auto lg:w-[350px] flex flex-col m-2 lg:mb-10 justify-center items-center rounded-sm border hover-effect">
+    <div className="h-auto w-full sm:w-[350px] flex flex-col m-2 lg:mb-10 justify-center items-center rounded-sm border ">
       <div className="h-60 w-full flex justify-center items-center overflow-hidden p-5 border-b-[1px]">
         <img
           src={data.image}
@@ -14,7 +14,7 @@ const CarCard = ({ data }) => {
       </div>
       <div className="p-4 w-full flex flex-col items-center justify-self-center">
         <div className="w-full mb-2">
-          <h2 className=" montserrat-bold text-lg px-2 flex justify-between">
+          <h2 className=" montserrat-bold text-lg px-2 flex flex-col sm:flex-row justify-between">
             <span>
               {data.name} {data.model}
             </span>
@@ -35,7 +35,9 @@ const CarCard = ({ data }) => {
               key={key}
               className="flex flex-col text-[12px] w-1/2 mb-2 px-2"
             >
-              <span className=" mb-1  uppercase montserrat-bold ">{key}:</span>
+              <span className=" mb-1 hidden sm:inline  uppercase montserrat-bold ">
+                {key}:
+              </span>
               <span className="roboto-regular">{data[key]}</span>
             </div>
           ))}

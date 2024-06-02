@@ -84,13 +84,13 @@ const FeaturedCar = () => {
   };
 
   return (
-    <div className="min-h-[90vh]">
+    <div className="">
       <header>
         <h1 className="my-10 montserrat-regular text-center text-2xl lg:text-4xl font-roboto tracking-tight text-gray-900">
           Featured Cars
         </h1>
       </header>
-      <section className="grid grid-cols-2 lg:grid-cols-3 w-full lg:w-[70vw] mx-auto">
+      <section className="flex flex-wrap justify-center ">
         {carData.slice(0, visibleModels).map((car, index) => (
           <CarCard key={index} data={car} />
         ))}

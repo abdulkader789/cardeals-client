@@ -20,7 +20,7 @@ const CategorySlider = () => {
     <Swiper
       // slidesPerView={4}
       spaceBetween={10}
-      autoplay={{ delay: 2000, disableOnInteraction: false }}
+      autoplay={{ delay: 1000, disableOnInteraction: false }}
       modules={[Autoplay]}
       breakpoints={{
         // when window width is >= 320px (1 slide)
