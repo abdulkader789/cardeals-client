@@ -20,7 +20,7 @@ const CategorySlider = () => {
     <Swiper
       // slidesPerView={4}
       spaceBetween={10}
-      autoplay={{ delay: 2000 }}
+      autoplay={{ delay: 2000, disableOnInteraction: false }}
       modules={[Autoplay]}
       breakpoints={{
         // when window width is >= 320px (1 slide)
@@ -53,7 +53,7 @@ const CategorySlider = () => {
               />
             </div>
 
-            <div className="absolute bottom-5 flex w-full items-center justify-center ">
+            <div className="absolute top-5 lg:top-auto lg:bottom-5 flex w-full items-center justify-center ">
               <h2 className="uppercase w-full  text-center font-bold work-sans text-md mr-5 text-white">
                 {category.name}{" "}
                 <FontAwesomeIcon icon={faCar} className="ml-2 text-white" />

@@ -1,12 +1,14 @@
 import React, { useState } from "react";
-import BrandCard from "./PopularCarCard";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
+import CarCard from "./CarCard";
+import { useCar } from "../../../context/CarContext";
 
-const PopularCar = () => {
+const FeaturedCar = () => {
   const initialVisibleModels = 9;
   const [visibleModels, setVisibleModels] = useState(initialVisibleModels);
   const [showMore, setShowMore] = useState(false);
+  const { carData } = useCar();
 
   const carModels = [
     {
@@ -85,18 +87,18 @@ const PopularCar = () => {
     <div className="min-h-[90vh]">
       <header>
         <h1 className="my-10 montserrat-regular text-center text-2xl lg:text-4xl font-roboto tracking-tight text-gray-900">
-          Popular Cars
+          Featured Cars
         </h1>
       </header>
       <section className="grid grid-cols-2 lg:grid-cols-3 w-full lg:w-[70vw] mx-auto">
-        {carModels.slice(0, visibleModels).map((car, index) => (
-          <BrandCard key={index} data={car} />
+        {carData.slice(0, visibleModels).map((car, index) => (
+          <CarCard key={index} data={car} />
         ))}
       </section>
       {carModels.length > initialVisibleModels && (
         <div className="show-more my-4 text-center flex justify-center">
           <button
-            className="text-sm lg:text-xl roboto-medium flex items-center justify-center space-x-2"
+            className="text-sm lg:text-lg  montserrat-medium flex items-center justify-center space-x-2"
             onClick={toggleShowMore}
           >
             {showMore ? (
@@ -104,7 +106,7 @@ const PopularCar = () => {
             ) : (
               <FontAwesomeIcon className="mr-3" icon={faPlus} />
             )}
-            {showMore ? "Hide All Brands" : "Show All Brands"}
+            {showMore ? "Hide All Cars" : "Show All Cars"}
           </button>
         </div>
       )}
@@ -112,4 +114,4 @@ const PopularCar = () => {
   );
 };
 
-export default PopularCar;
+export default FeaturedCar;

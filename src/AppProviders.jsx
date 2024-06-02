@@ -1,4 +1,5 @@
 import { BrandProvider } from "./context/BrandContext";
+import { CarProvider } from "./context/CarContext";
 import { CategoryProvider } from "./context/CategoryContext";
 import { MobileNavProvider } from "./context/MobileNavContext";
 
@@ -6,7 +7,9 @@ const AppProviders = ({ children }) => {
   return (
     <MobileNavProvider>
       <CategoryProvider>
-        <BrandProvider>{children}</BrandProvider>
+        <BrandProvider>
+          <CarProvider>{children}</CarProvider>
+        </BrandProvider>
       </CategoryProvider>
     </MobileNavProvider>
   );

@@ -8,7 +8,7 @@ import { BannerCarousel } from "../components/Home/BannerCarousel/BannerCarousel
 import TestForm from "../components/TestForm";
 import TestHero from "../components/TestHero";
 import BrowseBrand from "../components/Home/BrowseBrand/BrowseBrand";
-import PopularCar from "../components/Home/PopularCar/PopularCar";
+import FeaturedCar from "../components/Home/FeaturedCar/FeaturedCar";
 
 const HomePage = () => {
   return (
@@ -16,7 +16,7 @@ const HomePage = () => {
       <BannerCarousel />
       <BrowseCategory />
       <BrowseBrand />
-      <PopularCar />
+      <FeaturedCar />
       <TestForm />
       {/* <TrustReasons />
 
