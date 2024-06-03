@@ -28,7 +28,16 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className="w-full fixed top-0 z-10 flex transition-all duration-500 ease-in-out">
+    <nav
+      className={`w-full  top-0 z-10 flex transition-all duration-500 ease-in-out ${
+        location.pathname !== "/" && location.pathname !== "/home"
+          ? "bg-black bg-opacity-95 sticky"
+          : scrolling
+          ? "bg-rgba(0, 0, 0, 0.5) backdrop-filter:blur(10px) z-index:999 fixed"
+          : "fixed"
+      }`}
+    >
+      {" "}
       <div
         className="w-full h-14 py-3 px-10 flex justify-between items-center"
         style={

@@ -1,4 +1,3 @@
-
 // import {
 //     createBrowserRouter,
 
@@ -17,7 +16,6 @@
 // import SearchProduct from "./pages/SearchProduct";
 // import ProductDetailsPage from "./pages/ProductDetailsPage";
 // // import ProductDetails from "./components/AdminDashboard/Product/ProductDetails";
-
 
 // // import PrivateRoute from "./components/PrivateRoute";
 // // import Dashboard from "./Layout/Dashboard";
@@ -42,7 +40,6 @@
 // // import Profile from "./components/UserDashboard/Content/Profile";
 // // import UpdateProfile from "./components/UserDashboard/Content/UpdateProfile";
 // // import MobileNavContext, { MobileNavProvider } from "./context/MobileNavContext";
-
 
 // const router = createBrowserRouter([
 //     {
@@ -100,7 +97,6 @@
 //                 path: "/search",
 //                 element: <SearchProduct />
 //             },
-
 
 //         ]
 //     },
@@ -194,31 +190,37 @@
 
 // },
 
-
 // ]);
 
-
-
 // export default router;
-
 
 import { createBrowserRouter } from "react-router-dom";
 
 import Main from "./Layout/Main";
 
 import HomePage from "./pages/HomePage";
-
+import AboutPage from "./pages/AboutPage";
+import ServicesPage from "./pages/ServicesPage";
+import CarPage from "./pages/CarPage";
+import BlogPage from "./pages/BlogPage";
+import ContactPage from "./pages/ContactPage";
+import LoginPage from "./pages/LoginPage";
 
 const routes = [
-    {
-        path: "/",
-        element: <Main />,
-        children: [
-            { path: "/", element: <HomePage /> },
-            { path: "/home", element: <HomePage /> },
-
-        ],
-    },
+  {
+    path: "/",
+    element: <Main />,
+    children: [
+      { path: "/", element: <HomePage /> },
+      { path: "/home", element: <HomePage /> },
+      { path: "/about", element: <AboutPage /> },
+      { path: "/services", element: <ServicesPage /> },
+      { path: "/cars", element: <CarPage /> },
+      { path: "/blog", element: <BlogPage /> },
+      { path: "/contact", element: <ContactPage /> },
+      { path: "/login", element: <LoginPage /> },
+    ],
+  },
 ];
 
 export default routes;

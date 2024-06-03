@@ -4,7 +4,7 @@ import "./FeaturedCar.css";
 const CarCard = ({ data }) => {
   console.log("data ", data);
   return (
-    <div className="h-auto w-full sm:w-[350px] flex flex-col m-2 lg:mb-10 justify-center items-center rounded-sm border ">
+    <div className="h-auto w-full  sm:w-[350px] flex flex-col m-2 lg:mb-10 justify-center items-center rounded-sm border ">
       <div className="h-60 w-full flex justify-center items-center overflow-hidden p-5 border-b-[1px]">
         <img
           src={data.image}
